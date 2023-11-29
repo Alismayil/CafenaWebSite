@@ -1,0 +1,216 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+@mixin Myflex{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+  }
+
+.popularMenu{
+    background-color: white;
+    width: 100%;
+    min-height: 100vh;
+    @include Myflex;
+    .popularMenuLeft{
+        width: 50%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        img{
+            max-width: 300px;
+        }
+    }
+    .popularMenuRight{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        height: 100vh;
+
+        img{
+            max-width: 300px;
+        }
+    }
+}
+.SpecialMenuBiggestBox{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0px 250px;
+    .container{
+        width: 100%;
+        height: 100vh;
+        .specialMenuBoxUp{
+            height: 25%;
+            .specialBox{
+                height: 20%;
+                @include Myflex;
+
+                .SpecialMenuBoxText{
+                    background-color: #C7A17A;
+                    width: 100px;
+                    font-size: 10px;
+                        height: 20px;
+                        @include Myflex;
+
+                        border-radius: 2px;
+                        color: white;
+                }
+            }
+            .speacialText{
+                height: 30%;
+                @include Myflex;
+
+                p{
+                    font-size: 30px;
+                }
+            }
+            .FilterText{
+                height: 50%;
+                @include Myflex;
+
+                .filterTextBox{
+                    padding: 5px 1px;
+                    height: 35%;
+                    border-radius: 10px;
+                    @include Myflex;
+                   
+                    .filterUl{
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 20px;
+                        list-style: none;
+                        border: 1px solid #C7A17A;
+                        border-radius: 5px;
+                        .active{
+                            background-color: #C7A17A;
+                            transition: 0.3s;
+                            color: white;
+                            border-radius: 3px;
+                        }
+                        a{
+                            text-decoration: none;
+                            color: black;
+                        
+                        li{
+                            height: 30px;
+                            padding: 0px 10px;
+                            @include Myflex;
+                            cursor: pointer;
+                            border-radius: 3px;
+                            font-size: 12px;
+                           transition: 0.3s;
+
+                        }
+                        li:hover{
+                            background-color: #C7A17A;
+                           transition: 0.3s;
+                           color: white;
+                            
+                        }
+                    }
+                    }
+                }
+            }
+        }
+        .specialMenuBoxDown{
+            background-color: orangered;
+            height: 75%;
+        }
+    }
+}
+
+@media screen and (max-width: 1153px) {
+    .SpecialMenuBiggestBox{
+        .container{
+            .specialMenuBoxUp{
+                .FilterText{
+                    .filterTextBox{
+                        .filterUl{
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        gap: 0px;
+
+                            a{
+                            width: 25%;
+                            }
+                        }
+                    }
+                }
+            }
+           
+        }
+    }
+    
+
+
+}
+@media screen and (max-width: 860px) {
+    .SpecialMenuBiggestBox{
+        padding: 0px 0px;
+        .container{
+            .specialMenuBoxUp{
+                .FilterText{
+                    .filterTextBox{
+                        .filterUl{
+                                a{
+                                width: 50%;
+                                }
+                            }
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+@media screen and (max-width: 652px) {
+    .popularMenu{
+        .popularMenuRight{
+            display: none;
+        }
+    }
+    
+
+
+}
+@media screen and (max-width: 425px) {
+    .popularMenu{
+        .popularMenuLeft{
+            img{
+                max-width: 200px;
+            }
+        }
+       
+    }
+    .SpecialMenuBiggestBox{
+        .container{
+            .specialMenuBoxUp{
+                .speacialText{
+                    p{
+                        font-size: 20px;
+                    }
+                }
+                .FilterText{
+                    .filterTextBox{
+                        .filterUl{
+                            width: 100%;
+                            
+                        }
+                        }
+                    }
+                }
+            }
+           
+        }
+    }
+
