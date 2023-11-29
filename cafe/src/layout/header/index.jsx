@@ -38,10 +38,10 @@ const Header = () => {
             />
             </div>
             <div className="main_num">
-              <div className="num">
-                <FaPlay />
+              <div className="playVideo">
+                <FaPlay  className="FaPlay"/>
               </div>
-              <span className="borderEffect">PLAY VIDEO</span>
+              <a className="borderEffect">PLAY VIDEO</a>
             </div>
           </div>
         </div>

@@ -14,15 +14,18 @@
     height: 150px;
     font-size: 90px;
   }
+
   p {
     font-size: 16px;
     color: #6c6c6c;
   }
 }
+
 .heroAreaBtn {
   display: flex;
   justify-content: left;
   gap: 50px;
+
   // Header buttom 1
   .sitebtn1 {
     border: 1px solid #9f9f9e;
@@ -41,6 +44,7 @@
       position: absolute;
       z-index: 2;
     }
+
     div {
       background-color: #c7a17a;
       width: 0px;
@@ -48,7 +52,7 @@
       display: flex;
       justify-content: center;
       text-align: center;
-    
+
       border-radius: 8px;
       transition: 0.7s;
       position: absolute;
@@ -56,12 +60,14 @@
       z-index: 0;
     }
   }
+
   .sitebtn1:hover {
     div {
       width: 200px;
       transition: 0.7s;
     }
   }
+
   //   Header Buttom 2
   .sitebtn2 {
     border: 1px solid #c7a17a;
@@ -73,6 +79,7 @@
     background-color: #c7a17a;
     border-radius: 8px;
     position: relative;
+
     p {
       padding: 0px 45px;
       color: white;
@@ -80,6 +87,7 @@
       position: absolute;
       z-index: 2;
     }
+
     div {
       background-color: #32323d;
       width: 0px;
@@ -94,6 +102,7 @@
       z-index: 0;
     }
   }
+
   .sitebtn2:hover {
     div {
       width: 200px;
@@ -101,17 +110,20 @@
     }
   }
 }
+
 // Header Image
 .heroAreoImage {
   display: flex;
   justify-content: center;
   align-items: baseline;
+
 }
+
 .sitebtn1::after {
   background-color: #6c6c6c;
 }
 
-.num {
+.playVideo {
   height: 80px;
   width: 80px;
   border-radius: 50%;
@@ -119,4 +131,47 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:hover {
+    background-color: #c7a17a;
+    transition: 0.4s;
+
+    .FaPlay:hover {
+      color: #fff;
+      transition: 0.4s;
+    }
+  }
+
+}
+
+.main_num {
+  a {
+    position: relative;
+  }
+
+  a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    border-radius: 4px;
+    background-color: #18272F;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+  }
+
+  a:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .headerHeroArea {
+    flex-direction: column-reverse;
+    gap: 15px;
+  }
 }
