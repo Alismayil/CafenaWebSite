@@ -1,0 +1,122 @@
+.headerHeroArea {
+  background-color: #fff;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16%;
+  background-image: url(https://xpressrow.com/html/cafena/cafena/assets/images/shape/hero-shape-2-1.png);
+  background-repeat: no-repeat;
+
+  h1 {
+    width: 500px;
+    height: 150px;
+    font-size: 90px;
+  }
+  p {
+    font-size: 16px;
+    color: #6c6c6c;
+  }
+}
+.heroAreaBtn {
+  display: flex;
+  justify-content: left;
+  gap: 50px;
+  // Header buttom 1
+  .sitebtn1 {
+    border: 1px solid #9f9f9e;
+    width: 200px;
+    height: 50px;
+    text-decoration: none;
+    color: rgb(195, 22, 22);
+    font-size: 13px;
+    border-radius: 8px;
+    position: relative;
+
+    p {
+      padding: 0px 35px;
+      color: rgb(9, 9, 9);
+      transition: 0.7s;
+      position: absolute;
+      z-index: 2;
+    }
+    div {
+      background-color: #c7a17a;
+      width: 0px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    
+      border-radius: 8px;
+      transition: 0.7s;
+      position: absolute;
+      top: 0;
+      z-index: 0;
+    }
+  }
+  .sitebtn1:hover {
+    div {
+      width: 200px;
+      transition: 0.7s;
+    }
+  }
+  //   Header Buttom 2
+  .sitebtn2 {
+    border: 1px solid #c7a17a;
+    width: 200px;
+    height: 50px;
+    text-decoration: none;
+    color: white;
+    font-size: 13px;
+    background-color: #c7a17a;
+    border-radius: 8px;
+    position: relative;
+    p {
+      padding: 0px 45px;
+      color: white;
+      transition: 0.7s;
+      position: absolute;
+      z-index: 2;
+    }
+    div {
+      background-color: #32323d;
+      width: 0px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      border-radius: 8px;
+      transition: 0.7s;
+      position: absolute;
+      top: 0;
+      z-index: 0;
+    }
+  }
+  .sitebtn2:hover {
+    div {
+      width: 200px;
+      transition: 0.7s;
+    }
+  }
+}
+// Header Image
+.heroAreoImage {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+.sitebtn1::after {
+  background-color: #6c6c6c;
+}
+
+.num {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border: 1px solid rgb(97, 96, 96);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
