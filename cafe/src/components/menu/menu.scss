@@ -1,216 +1,741 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 
 }
-@mixin Myflex{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-  }
 
-.popularMenu{
+@mixin Myflex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popularMenu {
     background-color: white;
     width: 100%;
     min-height: 100vh;
     @include Myflex;
-    .popularMenuLeft{
+
+    .popularMenuLeft {
         width: 50%;
         height: 100vh;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        img{
+
+        img {
             max-width: 300px;
         }
     }
-    .popularMenuRight{
+
+    .popularMenuRight {
         width: 50%;
         display: flex;
         flex-direction: column;
         align-items: end;
         height: 100vh;
 
-        img{
+        img {
             max-width: 300px;
         }
     }
 }
-.SpecialMenuBiggestBox{
+
+.SpecialMenuBiggestBox {
     height: 100vh;
     width: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    padding: 0px 250px;
-    .container{
+    padding: 0px 150px;
+
+    .container {
         width: 100%;
         height: 100vh;
-        .specialMenuBoxUp{
+
+        .specialMenuBoxUp {
             height: 25%;
-            .specialBox{
+
+            .specialBox {
                 height: 20%;
                 @include Myflex;
 
-                .SpecialMenuBoxText{
-                    background-color: #C7A17A;
+
+                .SpecialMenuBoxText {
+                    // background-color: #C7A17A;
                     width: 100px;
                     font-size: 10px;
-                        height: 20px;
-                        @include Myflex;
+                    height: 20px;
+                    @include Myflex;
 
-                        border-radius: 2px;
-                        color: white;
+                    border-radius: 2px;
+                    color: white;
                 }
             }
-            .speacialText{
+
+            .speacialText {
                 height: 30%;
                 @include Myflex;
 
-                p{
+                p {
                     font-size: 30px;
                 }
             }
-            .FilterText{
+
+            .FilterText {
                 height: 50%;
                 @include Myflex;
 
-                .filterTextBox{
+                .filterTextBox {
                     padding: 5px 1px;
                     height: 35%;
                     border-radius: 10px;
                     @include Myflex;
-                   
-                    .filterUl{
+
+                    .filterUl {
+                        width: 100%;
                         display: flex;
                         flex-wrap: wrap;
                         gap: 20px;
                         list-style: none;
-                        border: 1px solid #C7A17A;
+                        border: 1px solid #c7a07a5c;
                         border-radius: 5px;
-                        .active{
+                        
+                        .active {
                             background-color: #C7A17A;
                             transition: 0.3s;
                             color: white;
                             border-radius: 3px;
                         }
-                        a{
-                            text-decoration: none;
-                            color: black;
-                        
-                        li{
-                            height: 30px;
-                            padding: 0px 10px;
-                            @include Myflex;
-                            cursor: pointer;
-                            border-radius: 3px;
-                            font-size: 12px;
-                           transition: 0.3s;
 
-                        }
-                        li:hover{
-                            background-color: #C7A17A;
-                           transition: 0.3s;
-                           color: white;
-                            
-                        }
-                    }
+                        
+
+                            button {
+                                background-color: white;
+                                border: none;
+                                height: 30px;
+                                padding: 0px 10px;
+                                @include Myflex;
+                                cursor: pointer;
+                                border-radius: 4px;
+                                font-size: 12px;
+                                transition: 0.3s;
+
+                            }
+
+                            button:hover {
+                                background-color: #C7A17A;
+                                transition: 0.3s;
+                                color: white;
+
+                            }
+                        
                     }
                 }
             }
         }
-        .specialMenuBoxDown{
+
+        .specialMenuBoxDown {
             background-color: orangered;
-            height: 75%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+
+            .card {
+
+                position: relative;
+
+                .cardImg {
+                    width: 280px;
+                    height: 200px;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    z-index: 0;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 10px;
+                        transition: 0.4s;
+
+                    }
+
+                    img:hover {
+                        transform: scale(1.1);
+                        transition: 0.4s;
+                    }
+                }
+
+                .cardText {
+                    background-color: white;
+                    width: 240px;
+                    height: 130px;
+                    position: absolute;
+                    top: 140px;
+                    right: 20px;
+                    border-radius: 10px;
+                    z-index: 1;
+                    @include Myflex;
+                    flex-direction: column;
+                    gap: 10px;
+
+                    h4 {
+                        cursor: pointer;
+                    }
+
+                    .price {
+                        display: flex;
+                        font-size: 15px;
+
+                        p {
+                            color: #C7A17A;
+                        }
+
+                        span {
+                            padding: 0px 5px;
+                            text-decoration: line-through;
+                            color: rgba(128, 128, 128, 0.714);
+                        }
+
+                    }
+
+                    .btns {
+                        display: flex;
+                        gap: 5px;
+
+                        button {
+                            border: 1px solid gray;
+                            border-radius: 5px;
+                            height: 30px;
+                            width: 30px;
+                            background-color: white;
+                            cursor: pointer;
+                            transition: 0.3s;
+                            @include Myflex;
+                            color: gray;
+
+                        }
+
+                        button:hover {
+                            color: #C7A17A;
+                            border: 1px solid #C7A17A;
+                            transition: 0.3s;
+                        }
+                    }
+
+                }
+
+            }
+
+
+
+
+        }
+
+        .basketBox {
+            display: none;
+            background-color: white;
+            margin-top: 20px;
+            height: 100vh;
+            width: 25%;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 2;
+
+            .CartItems {
+                width: 100%;
+                height: 30px;
+                @include Myflex;
+                border-bottom: 1px solid gray;
+                margin-bottom: 10px;
+
+            }
+
+            .Emptybasket {
+                height: 70vh;
+                @include Myflex;
+                flex-direction: column;
+                font-size: 100px;
+                color: #C7A17A;
+
+                p {
+                    font-size: 40px;
+                }
+            }
+
+            .basketCard {
+                margin-bottom: 10px;
+                display: flex;
+
+                .removeBtnBasket {
+                    @include Myflex;
+
+                    button {
+                        @include Myflex;
+                        margin: 0px 2px;
+                        border-radius: 50%;
+                        background-color: white;
+                        cursor: pointer;
+                        border: none;
+
+                        .removeIcon {
+                            color: #80A093;
+                            font-size: 30px;
+                        }
+                    }
+                }
+
+                .BasketBoxImg {
+                    width: 50px;
+                    height: 50px;
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .nameAndPriceBox {
+                    width: 166px;
+                    height: 50px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    padding: 5px;
+
+                    p {
+                        font-size: 15px;
+                    }
+
+                    .priceAndCounterBox {
+                        display: flex;
+                        gap: 60px;
+
+                        p {
+                            margin: 0px 3px;
+                            font-size: 15px;
+
+                        }
+                    }
+
+                    .CountBox {
+                        display: flex;
+
+                        button {
+                            width: 15px;
+                            height: 15px;
+                            border-radius: 50%;
+                            cursor: pointer;
+                            background-color: white;
+
+                            border: 1px solid gray;
+                            @include Myflex;
+
+                        }
+                    }
+                }
+
+                .TotalAndRemovve {
+                    height: 50px;
+                    width: 42px;
+                    @include Myflex;
+
+                    p {
+                        font-size: 15px;
+                        transform: rotate(-20deg);
+                        @include Myflex;
+                        flex-direction: column;
+                    }
+
+                }
+
+            }
+
+            .SubtotalBox {
+                border-top: 1px solid gray;
+                margin-top: 10px;
+                min-height: 40px;
+                gap: 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+                flex-direction: column;
+
+                p {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .BasketsBtns{
+                    @include Myflex;
+                    gap: 10px;
+
+                    
+                   .DeleteBtnBasket{
+                    position: relative;
+                    background-color: #C7A17A;
+                    width: 100px;
+                    height: 35px;
+                    border-radius: 5px;
+                    border: none;
+                    cursor: pointer;
+                    .BasketBtnHover1{
+                        background-color: #010103;
+                        position: absolute;
+                        width: 0%;
+                        height: 100%;
+                        top: 0;
+                    border-radius: 5px;
+                        z-index: 0;
+                    transition: 0.9s;
+
+                    }
+                    p{
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                    border-radius: 5px;
+                    @include Myflex;
+                    z-index: 999;
+                    color: white;
+
+
+                    }
+                } 
+                .DeleteBtnBasket:hover{
+                    .BasketBtnHover1{
+                        
+                        width: 100%;
+                        transition: 0.7s;
+                    }
+                    
+                }
+                .ViewCardBtn{
+                    position: relative;
+                    background-color: white;
+                    width: 100px;
+                    height: 35px;
+                    border-radius: 5px;
+                    border: none;
+                    border: 1px solid black;
+                    cursor: pointer;
+                    .BasketBtnHover2{
+                        background-color: #C7A17A;
+                        position: absolute;
+                        width: 0%;
+                        height: 100%;
+                        top: 0;
+                    border-radius: 5px;
+                        z-index: 0;
+                    transition: 0.9s;
+
+                    }
+                    p{
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                    border-radius: 5px;
+                    @include Myflex;
+                    z-index: 999;
+                    transition: 0.9s;
+                    }
+                } 
+                .ViewCardBtn:hover{
+                    .BasketBtnHover2{
+                        
+                        width: 100%;
+                        transition: 0.7s;
+                    } 
+                    p{
+                        color: white;
+                        transition: 0.7s;
+
+                        }
+                    
+                }
+                }
+                
+
+                
+            }
+        }
+
+        .WishlistBox {
+            display: none;
+            margin-top: 20px;
+            min-height: 100vh;
+            width: 25%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            background-color: white;
+
+
+            .CartItems {
+                width: 100%;
+                height: 30px;
+                @include Myflex;
+                border-bottom: 1px solid gray;
+                margin-bottom: 10px;
+            }
+
+            .Emptywishlist {
+                height: 77vh;
+                @include Myflex;
+                flex-direction: column;
+                font-size: 100px;
+                color: #C7A17A;
+
+                p {
+                    font-size: 40px;
+                }
+            }
+
+            .WishlistMainBox {
+                display: grid;
+                grid-template-columns: auto auto;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+                padding: 10px;
+
+                .wishlistCard {
+                    width: 100%;
+                    height: 200px;
+
+                    .wishlistImgBox {
+                        width: 100%;
+                        height: 50%;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    .WishlistTextBox {
+                        height: 30%;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: space-between;
+                        padding: 5px;
+
+                        h5 {
+                            font-size: 15px;
+                        }
+
+                        p {
+                            font-size: 15px;
+                            color: #80a093cb;
+                        }
+                    }
+
+                    .wishlistBtns {
+                        height: 20%;
+                        @include Myflex;
+                        gap: 10px;
+
+                        button {
+                            height: 30px;
+                            width: 30px;
+                            cursor: pointer;
+                            border: 1px solid #C7A17A;
+                            background-color: white;
+                        }
+
+
+                    }
+                }
+            }
+            .WishlistDeleteBox{
+                border-top: 1px solid gray;
+                margin-top: 10px;
+                min-height: 40px;
+                gap: 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
+                flex-direction: column;
+                .DeleteBtnBasket{
+                    position: relative;
+                    background-color: #C7A17A;
+                    width: 100px;
+                    height: 35px;
+                    border-radius: 5px;
+                    border: none;
+                    cursor: pointer;
+                    .BasketBtnHover1{
+                        background-color: #010103;
+                        position: absolute;
+                        width: 0%;
+                        height: 100%;
+                        top: 0;
+                    border-radius: 5px;
+                        z-index: 0;
+                    transition: 0.9s;
+
+                    }
+                    p{
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                    border-radius: 5px;
+                    @include Myflex;
+                    z-index: 999;
+                    color: white;
+
+
+                    }
+                } 
+                button{
+                    position: relative;
+                    background-color: #C7A17A;
+                    width: 100px;
+                    height: 35px;
+                    border-radius: 5px;
+                    border: none;
+                    cursor: pointer;
+                    .WishlistBtnHover{
+                        background-color: #010103;
+                        position: absolute;
+                        width: 0%;
+                        height: 100%;
+                        top: 0;
+                    border-radius: 5px;
+                        z-index: 0;
+                    transition: 0.9s;
+
+                    }
+                    p{
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                    border-radius: 5px;
+                    @include Myflex;
+                    z-index: 999;
+                    color: white;
+
+
+                    }
+                } 
+                button:hover{
+                    .WishlistBtnHover{
+                        
+                        width: 100%;
+                        transition: 0.7s;
+                    }
+                    
+                    
+                    
+                }
+            }
+
+
         }
     }
 }
 
 @media screen and (max-width: 1153px) {
-    .SpecialMenuBiggestBox{
-        .container{
-            .specialMenuBoxUp{
-                .FilterText{
-                    .filterTextBox{
-                        .filterUl{
-                        display: flex;
-                        flex-wrap: wrap;
-                        justify-content: center;
-                        gap: 0px;
+    .SpecialMenuBiggestBox {
+        .container {
+            .specialMenuBoxUp {
+                .FilterText {
+                    .filterTextBox {
+                        .filterUl {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: center;
+                            gap: 0px;
 
-                            a{
-                            width: 25%;
+                            a {
+                                width: 25%;
                             }
                         }
                     }
                 }
             }
-           
+
         }
     }
-    
+
 
 
 }
+
 @media screen and (max-width: 860px) {
-    .SpecialMenuBiggestBox{
+    .SpecialMenuBiggestBox {
         padding: 0px 0px;
-        .container{
-            .specialMenuBoxUp{
-                .FilterText{
-                    .filterTextBox{
-                        .filterUl{
-                                a{
+
+        .container {
+            .specialMenuBoxUp {
+                .FilterText {
+                    .filterTextBox {
+                        .filterUl {
+                            a {
                                 width: 50%;
-                                }
                             }
+                        }
                     }
                 }
             }
-            
+
         }
     }
 }
 
 @media screen and (max-width: 652px) {
-    .popularMenu{
-        .popularMenuRight{
+    .popularMenu {
+        .popularMenuRight {
             display: none;
         }
     }
-    
+
 
 
 }
+
 @media screen and (max-width: 425px) {
-    .popularMenu{
-        .popularMenuLeft{
-            img{
+    .popularMenu {
+        .popularMenuLeft {
+            img {
                 max-width: 200px;
             }
         }
-       
+
     }
-    .SpecialMenuBiggestBox{
-        .container{
-            .specialMenuBoxUp{
-                .speacialText{
-                    p{
+
+    .SpecialMenuBiggestBox {
+        .container {
+            .specialMenuBoxUp {
+                .speacialText {
+                    p {
                         font-size: 20px;
                     }
                 }
-                .FilterText{
-                    .filterTextBox{
-                        .filterUl{
+
+                .FilterText {
+                    .filterTextBox {
+                        .filterUl {
                             width: 100%;
-                            
-                        }
+
                         }
                     }
                 }
             }
-           
         }
-    }
 
+    }
+}
