@@ -20,7 +20,7 @@ const Blog = () => {
     </div>
 </div>
 <div className='Blog_row_bottom'>
-    <div className='Blog_card'>
+    <div className='Blog_card_1'>
         <div className='Blog_img'>
         <img src="https://xpressrow.com/html/cafena/cafena/assets/images/blog/blog-2-1.jpeg" alt="" className='Blog_bg_img_bottom'/>
         </div>
@@ -35,7 +35,7 @@ const Blog = () => {
         </div>
         
     </div>
-    <div className='Blog_card'>
+    <div className='Blog_card_2'>
     <div className='Blog_img'>
         <img src="https://xpressrow.com/html/cafena/cafena/assets/images/blog/blog-2-2.jpeg" alt="" className='Blog_bg_img_bottom'/>
         </div>
@@ -49,7 +49,7 @@ const Blog = () => {
         </div>
       
     </div>
-    <div className='Blog_card'>
+    <div className='Blog_card_3'>
     <div className='Blog_img'>
         <img src="https://xpressrow.com/html/cafena/cafena/assets/images/blog/blog-2-3.jpeg" alt="" className='Blog_bg_img_bottom'/>
         </div>
