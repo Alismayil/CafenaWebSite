@@ -4,7 +4,7 @@ import { FaPlay } from "react-icons/fa";
 const Header = () => {
   return (
     <div>
-      <section>
+      <section id="Header">
         <div className="headerHeroArea">
           <div className="heroAreaContent">
             {/* <img

@@ -1,7 +1,7 @@
 .headerHeroArea {
   background-color: #fff;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,13 +13,14 @@
   h1 {
     width: 500px;
     height: 250px;
-    font-size: 90px;
+    font-size: 70px;
   }
 
   p {
     height: 60px;
-    font-size: 20px;
+    font-size: 16px;
     color: #6c6c6c;
+    
   }
 }
 
@@ -33,6 +34,9 @@
     border: 1px solid #9f9f9e;
     width: 211px;
     height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     color: rgb(195, 22, 22);
     font-size: 13px;
@@ -76,6 +80,9 @@
     border: 1px solid #c7a17a;
     width: 211px;
     height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-decoration: none;
     color: white;
     font-size: 13px;
@@ -120,6 +127,7 @@
   display: flex;
   justify-content: center;
   align-items: baseline;
+  width: 30%;
 
 }
 
@@ -175,9 +183,14 @@
 
 @media screen and (max-width: 1108px) {
   .headerHeroArea {
+    .heroAreaContent {
+      padding-bottom: 30px;
+    }
+
     flex-direction: column-reverse;
     gap: 1px;
-    h1{
+
+    h1 {
       text-align: center;
       height: 215px;
     }
@@ -187,7 +200,9 @@
 @media screen and (max-width:1360px) {
   .headerHeroArea {
     gap: 0%;
-
+p{
+  text-align: center;
+}
   }
 }
 
@@ -196,6 +211,36 @@
   .headerHeroArea {
     h1 {
       height: 200px;
+    }
+  }
+}
+
+@media screen and (max-width:768px) {
+  #Header {
+    height: 100%;
+
+    .headerHeroArea {
+      .heroAreoImage {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .image {
+          height: 300px;
+          max-width: 600px;
+
+          img {
+            height: 300px;
+            max-width: 600px;
+           
+          }
+        }
+      }
+    }
+
+    .heroAreaBtn {
+      flex-direction: column;
+      align-items: center;
     }
   }
 }

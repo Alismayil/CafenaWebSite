@@ -1,20 +1,22 @@
 .headerHeroArea {
   background-color: #fff;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 16%;
   background-image: url(https://xpressrow.com/html/cafena/cafena/assets/images/shape/hero-shape-2-1.png);
   background-repeat: no-repeat;
+  margin-bottom: 130px;
 }
 .headerHeroArea h1 {
   width: 500px;
-  height: 150px;
-  font-size: 90px;
+  height: 250px;
+  font-size: 70px;
 }
 .headerHeroArea p {
+  height: 60px;
   font-size: 16px;
   color: #6c6c6c;
 }
@@ -26,8 +28,11 @@
 }
 .heroAreaBtn .sitebtn1 {
   border: 1px solid #9f9f9e;
-  width: 200px;
+  width: 211px;
   height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   color: rgb(195, 22, 22);
   font-size: 13px;
@@ -40,6 +45,7 @@
   transition: 0.7s;
   position: absolute;
   z-index: 2;
+  top: 12px;
 }
 .heroAreaBtn .sitebtn1 div {
   background-color: #c7a17a;
@@ -48,10 +54,10 @@
   display: flex;
   justify-content: center;
   text-align: center;
+  align-items: center;
   border-radius: 8px;
   transition: 0.7s;
   position: absolute;
-  top: 0;
   z-index: 0;
 }
 .heroAreaBtn .sitebtn1:hover div {
@@ -60,8 +66,11 @@
 }
 .heroAreaBtn .sitebtn2 {
   border: 1px solid #c7a17a;
-  width: 200px;
+  width: 211px;
   height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   color: white;
   font-size: 13px;
@@ -75,6 +84,7 @@
   transition: 0.7s;
   position: absolute;
   z-index: 2;
+  top: 12px;
 }
 .heroAreaBtn .sitebtn2 div {
   background-color: #32323d;
@@ -98,6 +108,7 @@
   display: flex;
   justify-content: center;
   align-items: baseline;
+  width: 30%;
 }
 
 .sitebtn1::after {
@@ -143,9 +154,51 @@
   transform: scaleX(1);
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1108px) {
   .headerHeroArea {
     flex-direction: column-reverse;
-    gap: 15px;
+    gap: 1px;
+  }
+  .headerHeroArea .heroAreaContent {
+    padding-bottom: 30px;
+  }
+  .headerHeroArea h1 {
+    text-align: center;
+    height: 215px;
+  }
+}
+@media screen and (max-width: 1360px) {
+  .headerHeroArea {
+    gap: 0%;
+  }
+  .headerHeroArea p {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .headerHeroArea h1 {
+    height: 200px;
+  }
+}
+@media screen and (max-width: 768px) {
+  #Header {
+    height: 100%;
+  }
+  #Header .headerHeroArea .heroAreoImage {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #Header .headerHeroArea .heroAreoImage .image {
+    height: 300px;
+    max-width: 600px;
+  }
+  #Header .headerHeroArea .heroAreoImage .image img {
+    height: 300px;
+    max-width: 600px;
+  }
+  #Header .heroAreaBtn {
+    flex-direction: column;
+    align-items: center;
   }
 }/*# sourceMappingURL=header.css.map */

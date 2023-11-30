@@ -1,0 +1,138 @@
+#reviewTop {
+  background-image: url("https://xpressrow.com/html/cafena/cafena/assets/images/bg/testimonial-bg-2.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100%;
+  padding: 115px 0 40px;
+  opacity: 0.95;
+  background-color: #4f4f4f;
+  background-blend-mode: multiply;
+  position: relative;
+}
+#reviewTop .title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40px;
+}
+#reviewTop .title .subtitle {
+  color: #ffffff;
+  background: #C7A17A;
+  font-size: 12px;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  letter-spacing: 2px;
+  border-radius: 3px;
+}
+#reviewTop .title h2 {
+  color: aliceblue;
+  font-size: 40px;
+  letter-spacing: -2px;
+  margin-top: 24px;
+}
+#reviewTop .mySwiper {
+  width: 100%;
+  text-align: center;
+  overflow-y: hidden;
+  height: 360px;
+}
+#reviewTop .mySwiper .swiper-wrapper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+}
+#reviewTop .mySwiper .swiper-wrapper .swiper-slide .slide {
+  width: 66.66%;
+  position: relative;
+}
+#reviewTop .mySwiper .swiper-wrapper .swiper-slide .slide p {
+  font-size: 22px;
+  color: aliceblue;
+  margin: 24px 0 32px;
+  line-height: 1.4;
+  padding: 0 64px;
+}
+#reviewTop .mySwiper .swiper-wrapper .swiper-slide .slide h4 {
+  color: aliceblue;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+#reviewTop .mySwiper .swiper-wrapper .swiper-slide .slide .content {
+  text-align: center;
+  margin-top: 20px;
+}
+#reviewTop .mySwiper .swiper-wrapper .swiper-slide .slide .content h4 {
+  margin-bottom: 8px;
+}
+#reviewTop .mySwiper .swiper-wrapper .swiper-slide .slide .content .designation {
+  text-transform: uppercase;
+  color: #C7A17A;
+}
+#reviewTop .mySwiper .swiper-button-prev {
+  margin: -80px 0 80px 160px;
+}
+#reviewTop .mySwiper .swiper-button-prev::after {
+  font-family: FontAwesome;
+  content: "\f177";
+  color: #7d7d7d;
+  font-size: 16px;
+  border: 1px solid #7d7d7d;
+  padding: 16px;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+#reviewTop .mySwiper .swiper-button-prev:hover::after {
+  color: aliceblue;
+  background-color: #C7A17A;
+}
+#reviewTop .mySwiper .swiper-button-next {
+  margin: -72px 160px 80px 0px;
+}
+#reviewTop .mySwiper .swiper-button-next::after {
+  font-family: FontAwesome;
+  content: "\f178";
+  color: #7d7d7d;
+  font-size: 16px;
+  border: 1px solid #7d7d7d;
+  padding: 16px;
+  border-radius: 50%;
+  transition: 0.2s;
+}
+#reviewTop .mySwiper .swiper-button-next:hover::after {
+  color: #ffffff;
+  background-color: #C7A17A;
+}
+
+@media screen and (max-width: 1300px) {
+  #reviewTop .mySwiper .swiper-wrapper .swiper-slide .slide p {
+    padding: 0;
+    font-size: 14px;
+  }
+  #reviewTop .mySwiper .swiper-button-prev {
+    margin: 0;
+    position: absolute;
+    top: 90%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+  }
+  #reviewTop .mySwiper .swiper-button-next {
+    margin: 0;
+    position: absolute;
+    top: 90%;
+    right: 25%;
+    transform: translate(-50%, -50%);
+  }
+}
+@media screen and (max-width: 768px) {
+  #reviewTop .mySwiper {
+    height: 400px;
+  }
+}
+@media screen and (max-width: 576px) {
+  #reviewTop .mySwiper {
+    height: 480px;
+    width: 100%;
+  }
+}/*# sourceMappingURL=customer.css.map */

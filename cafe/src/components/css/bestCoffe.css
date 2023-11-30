@@ -1,75 +1,121 @@
-.areaBestCoffee {
-  background-color: #F4F1EE;
-  height: 100vh;
-  display: flex;
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+#aboutUs {
+  position: relative;
+  background-color: #f4f1ee;
+  z-index: 0;
   width: 100%;
 }
-.areaBestCoffee .bestCoffeeLeft {
-  width: 20%;
-  height: 100vh;
-  background-color: #F4F1EE;
+#aboutUs .container {
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  gap: 80px;
+  padding-top: 120px;
+  padding-bottom: 130px;
 }
-.areaBestCoffee .bestCoffeeLeft img {
-  max-width: 300px;
-}
-.areaBestCoffee .bestCoffeeRight {
-  background-color: #F4F1EE;
+#aboutUs .container .rightImg {
   position: absolute;
-  width: 20%;
-  display: flex;
-  flex-direction: column;
-  align-items: end;
   right: 0;
-  height: 100vh;
+  top: -60px;
 }
-.areaBestCoffee .bestCoffeeRight img {
-  max-width: 300px;
-}
-
-.coffeeContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 140px;
-}
-.coffeeContainer .aboutLeft {
-  position: relative;
-}
-
-.coffeRightText {
-  position: relative;
-}
-.coffeRightText .abouth6 {
-  width: 90px;
-  height: 20px;
-  border: 1px solid #c7a17a;
-  background-color: #c7a17a;
-  color: aliceblue;
-  border-radius: 4px;
-  font-size: 16px;
-}
-.coffeRightText h1 {
-  font-size: 40px;
-}
-.coffeRightText p {
-  font-size: 16px;
-  color: grey;
-}
-
-.aboutLeft .smallImg {
-  position: relative;
-  margin-right: 200px;
-  margin-top: 190px;
-}
-.aboutLeft .bigImage {
+#aboutUs .container .leftImg {
   position: absolute;
+  left: 0;
+}
+#aboutUs .container .contentImgs {
+  background-color: transparent;
+  z-index: 2;
+  margin-left: 100px;
+}
+#aboutUs .container .contentImgs .imgContainer {
+  position: relative;
+}
+#aboutUs .container .contentImgs .imgContainer .bigImg img {
+  max-width: none;
+}
+#aboutUs .container .contentImgs .imgContainer .smallImg {
+  position: absolute;
+  bottom: 0;
+  left: -130px;
+}
+#aboutUs .container .textContent {
+  width: 530px;
+  padding-top: 45px;
+  z-index: 2;
+}
+#aboutUs .container .textContent .subTitle {
+  margin-bottom: 30px;
+}
+#aboutUs .container .textContent .subTitle .textSubTitle {
+  background-color: var(--main-color);
+  letter-spacing: 2px;
+  color: white;
+  padding: 2px 13px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+#aboutUs .container .textContent .mainTitle {
+  margin-bottom: 20px;
+}
+#aboutUs .container .textContent .mainTitle .title {
+  color: black;
+  text-transform: uppercase;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 55px;
+  line-height: 57px;
+}
+#aboutUs .container .textContent .description {
+  font-size: 18px;
+  color: var(--light-grey-color);
+}
+#aboutUs .container .textContent .description .initalDesc {
+  margin-bottom: 45px;
 }
 
-@media screen and (max-width: 1100px) {
-  .coffeeContainer {
-    flex-direction: column-reverse;
+@media screen and (max-width: 1200px) {
+  #aboutUs .container {
+    flex-wrap: wrap;
+  }
+  #aboutUs .container .contentImgs {
+    margin-left: 0;
+  }
+  #aboutUs .container .contentImgs .imgContainer .smallImg {
+    bottom: 0;
+    right: 0;
+    left: auto;
+    transform: translateX(50%);
+  }
+  #aboutUs .container .textContent {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 767px) {
+  #aboutUs .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  #aboutUs .container .contentImgs {
+    flex-direction: column;
+    display: flex;
+  }
+  #aboutUs .container .contentImgs .imgContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  #aboutUs .container .contentImgs .imgContainer .bigImg {
+    margin: 0 30px;
+  }
+  #aboutUs .container .contentImgs .imgContainer .bigImg img {
+    max-width: 100%;
+  }
+  #aboutUs .container .contentImgs .imgContainer .smallImg {
+    display: flex;
+    position: static;
+    margin-top: 40px;
+    margin-right: 50%;
+  }
+  #aboutUs .container .textContent {
+    padding: 0 25px;
+    max-width: 100px;
   }
 }/*# sourceMappingURL=bestCoffe.css.map */

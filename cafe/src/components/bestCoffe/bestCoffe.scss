@@ -1,112 +1,147 @@
-#Best {
-    background-color: aqua;
-    min-height: 100vh;
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+#aboutUs {
+  position: relative;
+  background-color: #f4f1ee;
+  z-index: 0;
+  width: 100%;
+
+  .container {
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
-.aboutArea {
-
-    display: flex;
-   
-    justify-content: center;
-    align-items: center;
     gap: 80px;
-    margin-top: 100px;
+    padding-top: 120px;
+    padding-bottom: 130px;
 
-    .areaLeft {
-        .leftImage {
-            position: relative;
-
-            .smallImage {
-
-                position: absolute;
-                left: -160px;
-
-                bottom: 20px;
-
-
-            }
-        }
+    .rightImg {
+      position: absolute;
+      right: 0;
+      top: -60px;
     }
 
-}
+    .leftImg {
+      position: absolute;
+      left: 0;
+    }
 
-.textRight {
-    max-width: 594px;
-    height: 290px;
-    border: 1px solid red;
+    .contentImgs {
+      background-color: transparent;
+      z-index: 2;
+      margin-left: 100px;
 
-    .aboutUS {
-        width: 100px;
-        height: 20px;
-        border: 1px solid #c7a17a;
-        background-color: #c7a17a;
-        color: aliceblue;
-        border-radius: 4px;
-        font-size: 24px;
+      .imgContainer {
+        position: relative;
+
+        .bigImg {
+          img {
+            max-width: none;
+          }
+        }
+
+        .smallImg {
+          position: absolute;
+          bottom: 0;
+          left: -130px;
+        }
+      }
+    }
+
+    .textContent {
+      width: 530px;
+      padding-top: 45px;
+      z-index: 2;
+
+      .subTitle {
+        margin-bottom: 30px;
+
+        .textSubTitle {
+          background-color: var(--main-color);
+          letter-spacing: 2px;
+          color: white;
+          padding: 2px 13px;
+          font-size: 12px;
+          border-radius: 3px;
+        }
+      }
+
+      .mainTitle {
         margin-bottom: 20px;
-    }
 
-    h1 {
-        font-size: 35px;
-    }
+        .title {
+          color: black;
+          text-transform: uppercase;
+          font-family: "Bebas Neue", sans-serif;
+          font-size: 55px;
+          line-height: 57px;
+        }
+      }
 
-    p {
-        font-size: 20px;
+      .description {
+        font-size: 18px;
+        color: var(--light-grey-color);
+
+        .initalDesc {
+          margin-bottom: 45px;
+        }
+      }
     }
+  }
 }
-
-@media screen and (max-width:1516px) {
-    .aboutArea {
-        gap: 10px;
+@media screen and (max-width: 1200px) {
+  #aboutUs {
+   
+    .container {
+        
+      flex-wrap: wrap;
+      .contentImgs {
+        margin-left: 0; 
+        .imgContainer {
+          .smallImg {
+            bottom: 0;
+            right: 0;
+            left: auto;
+            transform: translateX(50%);
+          }
+        }
+      }
+      .textContent {
+        width: 100%;
+      }
     }
+  }
 }
+@media screen and (max-width: 767px) {
+  #aboutUs {
 
-@media screen and (max-width:1036px) {
-    .aboutArea {
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+      .contentImgs {
         flex-direction: column;
-
-        .areaLeft {
-
-
-
-            .leftImage {
-                position: relative;
-
-                .smallImage {
-
-                    position: absolute;
-                    left: -80px;
-                    left: unset;
-                    bottom: 20px;
-                }
-
+        display: flex;  
+        .imgContainer {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          .bigImg{
+            margin: 0 30px;
+            img{
+              max-width: 100%;
             }
-
+          }
+          .smallImg {
+            display: flex;
+            position: static;
+            margin-top: 40px;
+            margin-right: 50%;
+          }
         }
-
+      }
+      .textContent{
+        padding: 0 25px;
+        max-width: 100px;
+      }
     }
-
-    .textRight {
-        max-width: 994px;
-        height: 290px;
-    }
-}
-
-@media screen and (max-width:774px) {
-    .areaLeft{
-        .leftImage{
-            flex-direction: column-reverse;
-            .smallImage{
-                width: 40%;
-            }
-            .bigImage{
-            width: 70%;
-            }
-        }
-    }
+  }
+  
 }
