@@ -40,6 +40,117 @@ gap: 30px;
        transform: translate3d(-160%, -50%, 0);
     }
 }
+.Home{
+    .Home_btn{
+        transition: 0.3s;
+        list-style-type: none;
+        text-decoration: none;
+        color: black;
+        span{
+            position: absolute;
+            width: 11px;
+            top: 53px;
+            height: 11px;
+            // background: #C7A17A;
+            background: transparent;
+            border-radius: 50%;
+            
+            transform: translate3d(-100%, -50%, 0);
+            transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+        }
+        margin-right:25px;
+       }
+       .Home_btn:hover{
+        color:#C7A17A ;
+        .Home_circle{
+           background: #C7A17A;
+           transform: translate3d(-160%, -50%, 0);
+        }
+    }
+    .btn{
+        transition: 0.3s;
+        list-style-type: none;
+        text-decoration: none;
+        color: black;
+        span{
+            position: absolute;
+            width: 11px;
+            top: 53px;
+            height: 11px;
+            // background: #C7A17A;
+            background: transparent;
+            border-radius: 50%;
+            
+            transform: translate3d(-100%, -50%, 0);
+            transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+        }
+        margin-right:25px;
+    }
+    .btn:hover{
+        color:#C7A17A ;
+        span{
+           background: #C7A17A;
+           transform: translate3d(-160%, -50%, 0);
+        }
+    }
+    .active{
+   
+        
+            color:#C7A17A ;
+            
+            span{
+               background: #C7A17A;
+               transform: translate3d(-160%, -50%, 0);
+            }
+        
+    
+}
+.Home_ul{
+    position: absolute;
+    // display: flex;
+    display: none;
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 10px;
+   padding: 0;
+   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.05);
+   min-width: 240px;
+   padding: 15px 20px;
+   border-radius: 5px;
+  
+    .btn2{
+        transition: 0.3s;
+        padding-left: 10px;
+        list-style-type: none;
+        text-decoration: none;
+        color: black;
+        .circle{
+            position: absolute;
+            width: 11px;
+           
+            height: 11px;
+            // background: #C7A17A;
+            background: transparent;
+            border-radius: 50%;
+            margin-top: 8px;
+            transform: translate3d(-100%, -50%, 0);
+            transition: all 0.3s cubic-bezier(0.42, 0, 0.58, 1);
+        }
+        margin-right:25px;
+    }
+    .btn2:hover{
+        color:#C7A17A ;
+        .circle{
+           background: #C7A17A;
+           transform: translate3d(-160%, -50%, 0);
+        }
+    }
+ .active2{
+    color:#C7A17A ; 
+ }
+}
+
+}
 .active{
     color:#C7A17A ;
     span{
@@ -47,6 +158,8 @@ gap: 30px;
        transform: translate3d(-160%, -50%, 0);
     }
 }
+
+
         }
         .icons{
             font-size: 25px;

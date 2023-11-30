@@ -7,22 +7,31 @@ import { FaShoppingBasket } from "react-icons/fa";
 import { Link,Outlet,} from 'react-router-dom'
 const Navbar = () => {
     const [activeLink, setActiveLink] = useState('/');
-    // const [isAboutDropdownOpen, setAboutDropdownOpen] = useState(false);
+    
     const handleLinkClick = (to) => {
       setActiveLink(to);
-    //   if (to === '/about') {
+      // if (to === '/about') {
        
-    //     setAboutDropdownOpen(!isAboutDropdownOpen);
-    //   } else {
+      //   setAboutDropdownOpen(!isAboutDropdownOpen);
+      // } else {
         
-    //     setAboutDropdownOpen(false);
-    //   }
+      //   setAboutDropdownOpen(false);
+      // }
     };
   return (
     <nav>
     <div className='navbar_container'>
 <ul className='submenu'>
-<Link to='/' className={`btn ${activeLink === '/' ? 'active' : ''}`}onClick={() => handleLinkClick('/')}><span></span>HOME</Link>
+
+<div className='Home'>
+  <Link to='#' className={`btn ${activeLink === '/' || activeLink === '/Home1' || activeLink === '/Home2' ? 'active' : ''}`} onClick={() => handleLinkClick('/')} ><span></span>HOME
+  <ul className='Home_ul'>
+<Link to='/Home1' className={`btn2 ${activeLink === '/Home1' ? 'active2' : ''}`}onClick={() => handleLinkClick('/Home1')}  disabled={activeLink === '/Home2' || activeLink === '/Home3'}>Home 1</Link>
+<Link to='/Home2' className={`btn2 ${activeLink === '/Home2' ? 'active2' : ''}`}onClick={() => handleLinkClick('/Home2')}  disabled={activeLink === '/Home1' || activeLink === '/Home3'}>Home 2</Link>
+<Link to='/' className={`btn2 ${activeLink === '/' ? 'active2' : ''}`}onClick={() => handleLinkClick('/')}  disabled={activeLink === '/Home1' || activeLink === '/Home2'}>Home 3</Link>
+  </ul>
+  </Link>
+  </div>
 <Link to='/about' className={`btn ${activeLink === '/about' ? 'active' : ''}`}onClick={() => handleLinkClick('/about')}><span></span>ABOUT</Link>
 <Link to='/menu' className={`btn ${activeLink === '/menu' ? 'active' : ''}`}onClick={() => handleLinkClick('/menu')}><span></span>MENU</Link>
 <Link to='/reservation' className={`btn ${activeLink === '/reservation' ? 'active' : ''}`}onClick={() => handleLinkClick('/reservation')}><span></span>RESERVATION</Link>
