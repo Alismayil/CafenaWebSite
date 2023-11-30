@@ -166,6 +166,9 @@ nav {
     .icons {
       font-size: 25px;
       margin-right: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
       .hamburger {
         margin-left: 36px;
         cursor: pointer;
@@ -178,12 +181,16 @@ nav {
         cursor: pointer;
         position: relative;
       }
+      .wishlist{
+        margin-left: 36px;
+        cursor: pointer;
+      }
       .search_form {
         padding: 15px;
         z-index: 4;
         background-color: white;
         position: absolute;
-        margin-top: 61px;
+        margin-top: 175px;
         right: 170px;
         display: flex;
         align-items: center;
@@ -237,23 +244,28 @@ nav {
     }
   }
   .second_nav_container {
-    background-color: rgba(0, 0, 0, 0.7);
+   
+    background-color: rgba(0, 0, 0, 0.4);
     position: absolute;
-    top: 0;
+    visibility: hidden;
+    opacity: 0;
+   top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
+    z-index: 5;
     .second_nav {
       background-color: white;
       height: 100vh;
-      width: 300px;
+      width: 400px;
       position: absolute;
       top: 0;
       right: 0;
+     z-index: 5;
       .second_nav_top {
         padding: 20px;
         position: absolute;
-        width: 87%;
+        width: 90%;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -272,6 +284,7 @@ nav {
     border-radius: 50%;
     .second_nav_close{
         font-size: 16px;
+
     }
         }
         button:hover{
@@ -282,5 +295,89 @@ nav {
         padding:0px 20px;
       }
     }
+  
+  }
+  .wishlist_container{
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    visibility: hidden;
+  
+    opacity: 0;
+   top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 5;
+    .wishlist_bar{
+      background-color: white;
+      height: 100vh;
+      width: 400px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5;
+      button{
+        border: none;
+        background-color: #010103;
+        padding:20px ;
+        color: white;
+        font-size: 20px;
+        display: flex;
+ align-items: center;
+ justify-content: center;
+ position: absolute;
+right: 0;
+cursor: pointer;
+      }
+    }
+   }
+   .basket_container{
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    visibility: hidden;
+  
+    opacity: 0;
+   top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 5;
+    .basket_bar{
+      background-color: white;
+      height: 100vh;
+      width: 400px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 5;
+      button{
+        border: none;
+        background-color: #010103;
+        padding:20px ;
+        color: white;
+        font-size: 20px;
+        display: flex;
+ align-items: center;
+ justify-content: center;
+ position: absolute;
+left: 0;
+cursor: pointer;
+      }
+    }
+   }
+  .second_nav_active{
+    visibility: visible;
+    opacity: 1;
+    cursor: url(https://xpressrow.com/html/cafena/cafena/assets/images/icons/cancel.png), auto;
+  }
+  .wishlist_active{
+    visibility: visible;
+    opacity: 1;
+    cursor: url(https://xpressrow.com/html/cafena/cafena/assets/images/icons/cancel.png), auto;
+  }
+  .basket_active{
+    visibility: visible;
+    opacity: 1;
+    cursor: url(https://xpressrow.com/html/cafena/cafena/assets/images/icons/cancel.png), auto;
   }
 }

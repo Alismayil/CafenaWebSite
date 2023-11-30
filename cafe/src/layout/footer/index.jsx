@@ -8,6 +8,12 @@ import { FaGooglePlusG } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { FaArrowUpLong } from "react-icons/fa6";
 const Footer = () => {
+    const handleGoTopClick = () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      };
   return (
    <footer>
     <div className='footer_container'>
@@ -55,10 +61,10 @@ const Footer = () => {
                 <li><a href="">Blog</a></li>
             </ul>
             <div className='go_top'>
-            <a href="#" class="go-top__btn">
+            <button class="go-top__btn" onClick={handleGoTopClick}>
                                 <span>GO TOP</span>
                                 <FaArrowUpLong />
-                            </a>
+                            </button>
             </div>
         </div>
     </div>
