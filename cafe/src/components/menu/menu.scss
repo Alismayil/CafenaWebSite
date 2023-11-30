@@ -16,7 +16,7 @@
     width: 100%;
     min-height: 100vh;
     @include Myflex;
-
+position: relative;
     .popularMenuLeft {
         width: 50%;
         height: 100vh;
@@ -43,7 +43,7 @@
 }
 
 .SpecialMenuBiggestBox {
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     position: absolute;
     top: 0;
@@ -52,7 +52,7 @@
 
     .container {
         width: 100%;
-        height: 100vh;
+        // min-height: 100vh;  
 
         .specialMenuBoxUp {
             height: 25%;
@@ -63,7 +63,7 @@
 
 
                 .SpecialMenuBoxText {
-                    // background-color: #C7A17A;
+                    background-color: #C7A17A;
                     width: 100px;
                     font-size: 10px;
                     height: 20px;
@@ -101,7 +101,7 @@
                         list-style: none;
                         border: 1px solid #c7a07a5c;
                         border-radius: 5px;
-                        
+
                         .active {
                             background-color: #C7A17A;
                             transition: 0.3s;
@@ -109,28 +109,28 @@
                             border-radius: 3px;
                         }
 
-                        
 
-                            button {
-                                background-color: white;
-                                border: none;
-                                height: 30px;
-                                padding: 0px 10px;
-                                @include Myflex;
-                                cursor: pointer;
-                                border-radius: 4px;
-                                font-size: 12px;
-                                transition: 0.3s;
 
-                            }
+                        button {
+                            background-color: white;
+                            border: none;
+                            height: 30px;
+                            padding: 0px 10px;
+                            @include Myflex;
+                            cursor: pointer;
+                            border-radius: 4px;
+                            font-size: 12px;
+                            transition: 0.3s;
 
-                            button:hover {
-                                background-color: #C7A17A;
-                                transition: 0.3s;
-                                color: white;
+                        }
 
-                            }
-                        
+                        button:hover {
+                            background-color: #C7A17A;
+                            transition: 0.3s;
+                            color: white;
+
+                        }
+
                     }
                 }
             }
@@ -138,14 +138,14 @@
 
         .specialMenuBoxDown {
             background-color: orangered;
-            height: 100%;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             gap: 10px;
             flex-wrap: wrap;
 
             .card {
-
+                
                 position: relative;
 
                 .cardImg {
@@ -236,7 +236,7 @@
         }
 
         .basketBox {
-            display: none;
+            display: block;
             background-color: white;
             margin-top: 20px;
             height: 100vh;
@@ -372,99 +372,108 @@
                     justify-content: space-between;
                     align-items: center;
                 }
-                .BasketsBtns{
+
+                .BasketsBtns {
                     @include Myflex;
                     gap: 10px;
 
-                    
-                   .DeleteBtnBasket{
-                    position: relative;
-                    background-color: #C7A17A;
-                    width: 100px;
-                    height: 35px;
-                    border-radius: 5px;
-                    border: none;
-                    cursor: pointer;
-                    .BasketBtnHover1{
-                        background-color: #010103;
-                        position: absolute;
-                        width: 0%;
-                        height: 100%;
-                        top: 0;
-                    border-radius: 5px;
-                        z-index: 0;
-                    transition: 0.9s;
 
-                    }
-                    p{
-                        position: absolute;
-                        top: 0;
-                        width: 100%;
-                        height: 100%;
-                    border-radius: 5px;
-                    @include Myflex;
-                    z-index: 999;
-                    color: white;
-
-
-                    }
-                } 
-                .DeleteBtnBasket:hover{
-                    .BasketBtnHover1{
-                        
-                        width: 100%;
-                        transition: 0.7s;
-                    }
-                    
-                }
-                .ViewCardBtn{
-                    position: relative;
-                    background-color: white;
-                    width: 100px;
-                    height: 35px;
-                    border-radius: 5px;
-                    border: none;
-                    border: 1px solid black;
-                    cursor: pointer;
-                    .BasketBtnHover2{
+                    .DeleteBtnBasket {
+                        position: relative;
                         background-color: #C7A17A;
-                        position: absolute;
-                        width: 0%;
-                        height: 100%;
-                        top: 0;
-                    border-radius: 5px;
-                        z-index: 0;
-                    transition: 0.9s;
+                        width: 100px;
+                        height: 35px;
+                        border-radius: 5px;
+                        border: none;
+                        cursor: pointer;
 
-                    }
-                    p{
-                        position: absolute;
-                        top: 0;
-                        width: 100%;
-                        height: 100%;
-                    border-radius: 5px;
-                    @include Myflex;
-                    z-index: 999;
-                    transition: 0.9s;
-                    }
-                } 
-                .ViewCardBtn:hover{
-                    .BasketBtnHover2{
-                        
-                        width: 100%;
-                        transition: 0.7s;
-                    } 
-                    p{
-                        color: white;
-                        transition: 0.7s;
+                        .BasketBtnHover1 {
+                            background-color: #010103;
+                            position: absolute;
+                            width: 0%;
+                            height: 100%;
+                            top: 0;
+                            border-radius: 5px;
+                            z-index: 0;
+                            transition: 0.9s;
 
                         }
-                    
-                }
-                }
-                
 
-                
+                        p {
+                            position: absolute;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 5px;
+                            @include Myflex;
+                            z-index: 999;
+                            color: white;
+
+
+                        }
+                    }
+
+                    .DeleteBtnBasket:hover {
+                        .BasketBtnHover1 {
+
+                            width: 100%;
+                            transition: 0.7s;
+                        }
+
+                    }
+
+                    .ViewCardBtn {
+                        position: relative;
+                        background-color: white;
+                        width: 100px;
+                        height: 35px;
+                        border-radius: 5px;
+                        border: none;
+                        border: 1px solid black;
+                        cursor: pointer;
+
+                        .BasketBtnHover2 {
+                            background-color: #C7A17A;
+                            position: absolute;
+                            width: 0%;
+                            height: 100%;
+                            top: 0;
+                            border-radius: 5px;
+                            z-index: 0;
+                            transition: 0.9s;
+
+                        }
+
+                        p {
+                            position: absolute;
+                            top: 0;
+                            width: 100%;
+                            height: 100%;
+                            border-radius: 5px;
+                            @include Myflex;
+                            z-index: 999;
+                            transition: 0.9s;
+                        }
+                    }
+
+                    .ViewCardBtn:hover {
+                        .BasketBtnHover2 {
+
+                            width: 100%;
+                            transition: 0.7s;
+                        }
+
+                        p {
+                            color: white;
+                            transition: 0.7s;
+
+                        }
+
+                    }
+                }
+
+
+
             }
         }
 
@@ -557,7 +566,8 @@
                     }
                 }
             }
-            .WishlistDeleteBox{
+
+            .WishlistDeleteBox {
                 border-top: 1px solid gray;
                 margin-top: 10px;
                 min-height: 40px;
@@ -567,7 +577,8 @@
                 align-items: center;
                 padding: 10px;
                 flex-direction: column;
-                .DeleteBtnBasket{
+
+                .DeleteBtnBasket {
                     position: relative;
                     background-color: #C7A17A;
                     width: 100px;
@@ -575,31 +586,34 @@
                     border-radius: 5px;
                     border: none;
                     cursor: pointer;
-                    .BasketBtnHover1{
+
+                    .BasketBtnHover1 {
                         background-color: #010103;
                         position: absolute;
                         width: 0%;
                         height: 100%;
                         top: 0;
-                    border-radius: 5px;
+                        border-radius: 5px;
                         z-index: 0;
-                    transition: 0.9s;
+                        transition: 0.9s;
 
                     }
-                    p{
+
+                    p {
                         position: absolute;
                         top: 0;
                         width: 100%;
                         height: 100%;
-                    border-radius: 5px;
-                    @include Myflex;
-                    z-index: 999;
-                    color: white;
+                        border-radius: 5px;
+                        @include Myflex;
+                        z-index: 999;
+                        color: white;
 
 
                     }
-                } 
-                button{
+                }
+
+                button {
                     position: relative;
                     background-color: #C7A17A;
                     width: 100px;
@@ -607,43 +621,227 @@
                     border-radius: 5px;
                     border: none;
                     cursor: pointer;
-                    .WishlistBtnHover{
+
+                    .WishlistBtnHover {
                         background-color: #010103;
                         position: absolute;
                         width: 0%;
                         height: 100%;
                         top: 0;
-                    border-radius: 5px;
+                        border-radius: 5px;
                         z-index: 0;
-                    transition: 0.9s;
+                        transition: 0.9s;
 
                     }
-                    p{
+
+                    p {
                         position: absolute;
                         top: 0;
                         width: 100%;
                         height: 100%;
-                    border-radius: 5px;
-                    @include Myflex;
-                    z-index: 999;
-                    color: white;
+                        border-radius: 5px;
+                        @include Myflex;
+                        z-index: 999;
+                        color: white;
 
 
                     }
-                } 
-                button:hover{
-                    .WishlistBtnHover{
-                        
+                }
+
+                button:hover {
+                    .WishlistBtnHover {
+
                         width: 100%;
                         transition: 0.7s;
                     }
-                    
-                    
-                    
+
+
+
                 }
             }
 
 
+        }
+    }
+}
+
+
+@media screen and (min-width: 1801px) {
+    .SpecialMenuBiggestBox {
+        .container {
+            .specialMenuBoxUp {
+                .specialBox {
+                    .SpecialMenuBoxText {
+                        width: 150px;
+                        font-size: 15px;
+                        height: 30px;
+                    }
+                }
+                .speacialText {
+                    p {
+                        font-size: 40px;
+                    }
+                }
+                .FilterText {
+                    height: 50%;
+                    .filterTextBox {
+                        @include Myflex;
+                        .filterUl {
+                            padding: 0px 0px;
+                            button {
+                                height: 35px;
+                                padding: 0px 20px;
+                            }
+                        }
+                    }
+                }
+            }
+            .specialMenuBoxDown {
+                .card {
+                    width: 400px;
+                    height: 400px;
+
+                    .cardImg {
+                        width: 100%;
+                        height: 300px;
+                    }
+
+                    .cardText {
+                        width: 300px;
+                        height: 200px;
+                        top: 200px;
+                        right: 13%;
+
+                        h4 {
+                            font-size: 25px;
+                            cursor: pointer;
+                        }
+
+                        .price {
+                            display: flex;
+                            font-size: 19px;
+                        }
+
+                        .btns {
+                            button {
+                                height: 40px;
+                                width: 40px;
+                            }
+                        }
+                    }
+                }
+            }
+            .basketBox {
+                .CartItems {
+                    width: 100%;
+                    height: 60px;
+                    font-size: 25px;
+                }
+                .basketCard {
+                    .removeBtnBasket {
+                        @include Myflex;
+                        button {
+                            .removeIcon {
+                                font-size: 40px;
+                            }
+                        }
+                    }
+                    .BasketBoxImg {
+                        width: 90px;
+                        height: 90px;
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                    .nameAndPriceBox {
+                        width: 250px;
+                        height: 90px;
+                            p {
+                            font-size: 23px;
+                        }
+                        .priceAndCounterBox {
+                            p {
+                                font-size: 22px;
+                            }
+                        }
+                        .CountBox {
+                            button {
+                                width: 25px;
+                                height: 25px;
+                            font-size: 20px;
+                            }
+                            p{
+                            font-size: 20px;
+                            }
+                        }
+                    }
+                    .TotalAndRemovve {
+                        height: 90px;
+                        width: 90px;
+                        p {
+                            font-size: 25px;
+                        }
+                    }
+                }
+    
+                .SubtotalBox {
+                    font-size: 25px;
+                    .BasketsBtns {
+                        .DeleteBtnBasket {
+                            width: 200px;
+                            height: 45px;
+                            font-size: 20px;
+                        }
+                        .ViewCardBtn {
+                            width: 200px;
+                            height: 45px;
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+            .WishlistBox {
+                .CartItems {
+                    width: 100%;
+                    height: 60px;
+                    font-size: 25px;
+                }
+                .Emptywishlist {
+                    height: 70vh;
+                }
+                .WishlistMainBox {
+                    .wishlistCard {
+                        width: 100%;
+                        height: 240px;
+                        .WishlistTextBox {
+                            h5 {
+                                font-size: 16px;
+                            }
+                            p {
+                                font-size: 20px;
+                                color: #80a093cb;
+                            }
+                        }
+                        .wishlistBtns {
+                            button {
+                                height: 35px;
+                                width: 35px;
+                            }
+                        }
+                    }
+                }
+                .WishlistDeleteBox {
+                    button {
+                        margin-top: 30px;
+                        width: 250px;
+                        height: 60px;
+                        p {
+                        font-size: 30px;    
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -667,18 +865,15 @@
                     }
                 }
             }
-
         }
     }
 
 
 
 }
-
 @media screen and (max-width: 860px) {
     .SpecialMenuBiggestBox {
         padding: 0px 0px;
-
         .container {
             .specialMenuBoxUp {
                 .FilterText {
@@ -691,20 +886,20 @@
                     }
                 }
             }
-
         }
     }
 }
 
-@media screen and (max-width: 652px) {
-    .popularMenu {
-        .popularMenuRight {
-            display: none;
+@media screen and (max-width: 570px) {
+    .SpecialMenuBiggestBox {
+        .container {
+            .specialMenuBoxDown {
+                    .card{
+                        margin-bottom: 100px;
+                    }
+                }
         }
     }
-
-
-
 }
 
 @media screen and (max-width: 425px) {
@@ -714,9 +909,7 @@
                 max-width: 200px;
             }
         }
-
     }
-
     .SpecialMenuBiggestBox {
         .container {
             .specialMenuBoxUp {
@@ -725,7 +918,6 @@
                         font-size: 20px;
                     }
                 }
-
                 .FilterText {
                     .filterTextBox {
                         .filterUl {

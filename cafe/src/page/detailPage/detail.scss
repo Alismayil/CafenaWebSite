@@ -1,0 +1,168 @@
+@mixin Myflex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.detailPage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    background-color: rgba(0, 0, 0,0.6);
+    width: 100%;
+    height: 100vh;
+    @include Myflex;
+
+    .detailBox {
+        background-color: white;
+        height: 47%;
+        width: 57%;
+        border-radius: 10px;
+        display: flex;
+
+        .detailImgBox {
+            border-radius: 10px;
+            width: 33%;
+            height: 100%;
+            @include Myflex;
+        }
+            .detailTextBox {
+                width: 67%;
+                height: 100%;
+                padding: 30px 0px;
+                gap: 10px;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                .detailPageCloseBtn{
+                    background-color: black;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 7px;
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    border: none;
+                    color: white;
+                    cursor: pointer;
+                    transition: 0.7s;
+
+            @include Myflex;
+
+                    font-size: 20px;
+                }
+                .detailPageCloseBtn:hover{
+                    background-color: #C7A17A;
+                    transition: 0.7s;
+                }
+                .detailName{
+                    font-size: 25px;
+                }
+                .detailRating{
+                    .fa-solid{
+                        color: #C7A17A;
+                    }
+                }
+                .detailPrice{
+                    font-size: 30px;
+                }.detailAvailable{
+                    display: flex;
+                    gap: 2px;
+                    font-size: 22px;
+
+                    .detailAvailableText{
+                    color: gray;
+                    }
+                  
+                }
+                .detailComment{
+                    color: gray;
+                    max-width: 90%;
+                    font-size: 17px;
+                }
+
+                .detailsBtn {
+                    display: flex;
+                    margin: 15px 0px;
+                    gap: 15px;
+                    height: 50px;
+                    width: 440px;
+                .detailsBtnCounterBox{
+                        @include Myflex;
+                        width: 150px;
+                        height: 50px;
+                        gap: 5px;
+                        input{
+                            height: 50px;
+                            width: 100%;
+                            border-radius: 5px;
+                            border: 1px solid gray;
+                            padding: 0px 10px;
+                        }
+                }
+                .detailsAddBtn {
+                        width: 180px;
+                        height:100% ;
+                        border-radius: 5px;
+                    position: relative;
+                    background-color: #C7A17A;
+                    border-radius: 5px;
+                    border: none;
+                    cursor: pointer;
+
+                    .WishlistBtnHover {
+                        background-color: #010103;
+                        position: absolute;
+                        width: 0%;
+                        height: 100%;
+                        top: 0;
+                        border-radius: 5px;
+                        z-index: 0;
+                        transition: 0.9s;
+
+                    }
+
+                    p {
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 5px;
+                        @include Myflex;
+                        z-index: 999;
+                        color: white;
+
+
+                    }
+                }
+
+                .detailsAddBtn:hover {
+                    .WishlistBtnHover {
+                        width: 100%;
+                        transition: 0.7s;
+                    }
+                }
+                }
+                .detailCategory{
+                    display: flex;
+                    gap: 5px;
+                    font-size: 14px;
+                    .detailCategoryText{
+                        color: gray;
+                    }
+                }
+               
+            }
+        }
+    }
+    .detailPage.close{
+        display: none;
+    }

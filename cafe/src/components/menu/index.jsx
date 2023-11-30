@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './menu.scss'
 import axios from "axios";
 import { PiBasket } from "react-icons/pi";
@@ -8,15 +8,18 @@ import useLocal from '../../hook/UseLocal';
 import { TbBasketPlus } from "react-icons/tb";
 import { TbHeartPlus } from "react-icons/tb";
 import { TbHeartX } from "react-icons/tb";
+import { BasketContext } from '../../context/BasketContext/basketContext';
 
 
-function PopularMenu() {
+function PopularMenu({changeModalState,setDetailId}) {
     // ------------card---------------
     const [card, setCard] = useState([])
-    const [basket, setBasket] = useLocal("basket")
+    // const [basket, setBasket] = useLocal("basket")
     const [wishlist, setWishlist] = useLocal("wishlist")
     const [heart, setHeart] = useLocal("heart")
     const [catagory, setCatagory] = useState("All")
+
+    const  {handleAddBasket,handleRemove,handleCountVal,handleDeleteBasket,basket,subtotal} = useContext(BasketContext)
 
     const BaseUrl = "http://localhost:3000/coffee"
 
@@ -38,57 +41,57 @@ function PopularMenu() {
     }, [])
 
     // ------------basket---------------
-    let subtotal=0
-    basket.forEach(element => {
-        subtotal+=(element.total)
-    });
+    // let subtotal=0
+    // basket.forEach(element => {
+    //     subtotal+=(element.total)
+    // });
 
-    function handleAddBasket(x) {
-        const elemnetIndex=basket.findIndex(item=>item.id === x.id)
-        if (elemnetIndex !== -1) {
-            const newBasket =[...basket]
-            newBasket[elemnetIndex].count++
-            newBasket[elemnetIndex].total=newBasket[elemnetIndex].count*newBasket[elemnetIndex].newPrice
-            setBasket(newBasket)
+    // function handleAddBasket(x) {
+    //     const elemnetIndex=basket.findIndex(item=>item.id === x.id)
+    //     if (elemnetIndex !== -1) {
+    //         const newBasket =[...basket]
+    //         newBasket[elemnetIndex].count++
+    //         newBasket[elemnetIndex].total=newBasket[elemnetIndex].count*newBasket[elemnetIndex].newPrice
+    //         setBasket(newBasket)
             
-        }
-        else{
-        const total=x.newPrice
-        setBasket([...basket, {...x, count:1, total:total}])
+    //     }
+    //     else{
+    //     const total=x.newPrice
+    //     setBasket([...basket, {...x, count:1, total:total}])
 
-        }
-    }
-    function handleRemove(id) {
-        setBasket(basket.filter(x=>x.id !== id))
-    }
-    function handleDeleteBasket() {
-        setBasket([])
-    }
+    //     }
+    // }
+    // function handleRemove(id) {
+    //     setBasket(basket.filter(x=>x.id !== id))
+    // }
+    // function handleDeleteBasket() {
+    //     setBasket([])
+    // }
 
-    function handleCountVal(isAdd ,x ) {
-        const elemnetIndex=basket.findIndex(item=>item.id === x.id)
-        const newBasket =[...basket]
-        if (isAdd) {
-            if (newBasket[elemnetIndex].count === 30) {
-                return
-            }
-            newBasket[elemnetIndex].count++
-            newBasket[elemnetIndex].total=newBasket[elemnetIndex].count*newBasket[elemnetIndex].newPrice
-            setBasket(newBasket)
+    // function handleCountVal(isAdd ,x ) {
+    //     const elemnetIndex=basket.findIndex(item=>item.id === x.id)
+    //     const newBasket =[...basket]
+    //     if (isAdd) {
+    //         if (newBasket[elemnetIndex].count === 30) {
+    //             return
+    //         }
+    //         newBasket[elemnetIndex].count++
+    //         newBasket[elemnetIndex].total=newBasket[elemnetIndex].count*newBasket[elemnetIndex].newPrice
+    //         setBasket(newBasket)
             
-        }
+    //     }
         
-        else{
-            newBasket[elemnetIndex].count--
-            newBasket[elemnetIndex].total=newBasket[elemnetIndex].count*newBasket[elemnetIndex].newPrice
-            setBasket(newBasket)
-        if (newBasket[elemnetIndex].count === 0) {
-                setBasket(basket.filter(item=>item.id !== x.id))
-            }
+    //     else{
+    //         newBasket[elemnetIndex].count--
+    //         newBasket[elemnetIndex].total=newBasket[elemnetIndex].count*newBasket[elemnetIndex].newPrice
+    //         setBasket(newBasket)
+    //     if (newBasket[elemnetIndex].count === 0) {
+    //             setBasket(basket.filter(item=>item.id !== x.id))
+    //         }
             
-        }
+    //     }
         
-    }
+    // }
 
 
     // ------------wishlist---------------
@@ -197,9 +200,13 @@ function PopularMenu() {
                                                 ><PiBasket />
                                                 </button>
                                                 <button onClick={()=>handleAddWishlist(item)} >
-                                                <i class={`${heart.includes(item.id) ? "fa-solid" : "fa-regular"} fa-heart`}></i>
+                                                <i className={`${heart.includes(item.id) ? "fa-solid" : "fa-regular"} fa-heart`}></i>
                                                 </button>
-                                                <button><FaRegEye /></button>
+                                                <button onClick={()=>{
+                                                    console.log("id",item.id)
+                                                    changeModalState()
+                                                    setDetailId(item.id)
+                                                }}><FaRegEye /></button>
                                             </div>
                                         </div>
                                     </div>
