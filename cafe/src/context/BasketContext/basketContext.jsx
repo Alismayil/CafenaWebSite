@@ -63,7 +63,8 @@ const BasketProvider = ({ children }) => {
     }
     function handleModalAdd(item, count) {
         const elemnetIndex = basket.findIndex(x => x.id === item.id)
-        console.log(item,count)
+        console.log("item :", item)
+        console.log("count :", count)
         if (elemnetIndex !== -1) {
             console.log("item basketde var")
             const newBasket = [...basket]
@@ -80,7 +81,15 @@ const BasketProvider = ({ children }) => {
 
 
     const data = {
-        handleAddBasket, handleRemove, handleCountVal, handleDeleteBasket, basket, setBasket, subtotal, handleModalAdd
+        handleAddBasket,
+        handleRemove,
+        handleCountVal,
+        handleDeleteBasket,
+        basket,
+        setBasket,
+        subtotal,
+        handleModalAdd
+        
     }
     return (
 

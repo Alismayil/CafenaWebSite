@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PopularMenu from '../../components/menu'
 import DetailPage from '../detailPage'
 import BasketProvider from '../../context/BasketContext/basketContext'
+import WishlistProvider from '../../context/WishlistContext/wishlistContext'
 
 function Homepage() {
   const [openDetailPage, setopenDetailPage] = useState(false)
@@ -15,8 +16,10 @@ function Homepage() {
   return (
     <>
       <BasketProvider>
+        <WishlistProvider>
         <PopularMenu changeModalState={handleOpenDetailPage} setDetailId={setDetailId} />
         <DetailPage modalState={openDetailPage} detailId={detailId} handleOpenDetailPage={handleOpenDetailPage} />
+        </WishlistProvider>
       </BasketProvider>
     </>
   )

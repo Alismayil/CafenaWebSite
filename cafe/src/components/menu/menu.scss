@@ -16,7 +16,8 @@
     width: 100%;
     min-height: 100vh;
     @include Myflex;
-position: relative;
+    position: relative;
+
     .popularMenuLeft {
         width: 50%;
         height: 100vh;
@@ -52,7 +53,6 @@ position: relative;
 
     .container {
         width: 100%;
-        // min-height: 100vh;  
 
         .specialMenuBoxUp {
             height: 25%;
@@ -145,7 +145,7 @@ position: relative;
             flex-wrap: wrap;
 
             .card {
-                
+
                 position: relative;
 
                 .cardImg {
@@ -236,7 +236,7 @@ position: relative;
         }
 
         .basketBox {
-            display: block;
+            display: none;
             background-color: white;
             margin-top: 20px;
             height: 100vh;
@@ -290,7 +290,7 @@ position: relative;
                 }
 
                 .BasketBoxImg {
-                    width: 50px;
+                    width: 60px;
                     height: 50px;
 
                     img {
@@ -665,6 +665,11 @@ position: relative;
     }
 }
 
+.btnActive{
+    background-color: green;
+    width: 100px;
+    height: 100px;
+}
 
 @media screen and (min-width: 1801px) {
     .SpecialMenuBiggestBox {
@@ -677,17 +682,22 @@ position: relative;
                         height: 30px;
                     }
                 }
+
                 .speacialText {
                     p {
                         font-size: 40px;
                     }
                 }
+
                 .FilterText {
                     height: 50%;
+
                     .filterTextBox {
                         @include Myflex;
+
                         .filterUl {
                             padding: 0px 0px;
+
                             button {
                                 height: 35px;
                                 padding: 0px 20px;
@@ -696,7 +706,9 @@ position: relative;
                     }
                 }
             }
+
             .specialMenuBoxDown {
+
                 .card {
                     width: 400px;
                     height: 400px;
@@ -731,68 +743,82 @@ position: relative;
                     }
                 }
             }
+
             .basketBox {
                 .CartItems {
                     width: 100%;
                     height: 60px;
                     font-size: 25px;
                 }
+
                 .basketCard {
                     .removeBtnBasket {
                         @include Myflex;
+
                         button {
                             .removeIcon {
                                 font-size: 40px;
                             }
                         }
                     }
+
                     .BasketBoxImg {
                         width: 90px;
                         height: 90px;
+
                         img {
                             width: 100%;
                             height: 100%;
                         }
                     }
+
                     .nameAndPriceBox {
                         width: 250px;
                         height: 90px;
-                            p {
+
+                        p {
                             font-size: 23px;
                         }
+
                         .priceAndCounterBox {
                             p {
                                 font-size: 22px;
                             }
                         }
+
                         .CountBox {
                             button {
                                 width: 25px;
                                 height: 25px;
-                            font-size: 20px;
+                                font-size: 20px;
                             }
-                            p{
-                            font-size: 20px;
+
+                            p {
+                                font-size: 20px;
                             }
                         }
                     }
+
                     .TotalAndRemovve {
                         height: 90px;
                         width: 90px;
+
                         p {
                             font-size: 25px;
                         }
                     }
                 }
-    
+
                 .SubtotalBox {
                     font-size: 25px;
+
                     .BasketsBtns {
                         .DeleteBtnBasket {
                             width: 200px;
                             height: 45px;
                             font-size: 20px;
                         }
+
                         .ViewCardBtn {
                             width: 200px;
                             height: 45px;
@@ -801,28 +827,34 @@ position: relative;
                     }
                 }
             }
+
             .WishlistBox {
                 .CartItems {
                     width: 100%;
                     height: 60px;
                     font-size: 25px;
                 }
+
                 .Emptywishlist {
                     height: 70vh;
                 }
+
                 .WishlistMainBox {
                     .wishlistCard {
                         width: 100%;
                         height: 240px;
+
                         .WishlistTextBox {
                             h5 {
                                 font-size: 16px;
                             }
+
                             p {
                                 font-size: 20px;
                                 color: #80a093cb;
                             }
                         }
+
                         .wishlistBtns {
                             button {
                                 height: 35px;
@@ -831,13 +863,15 @@ position: relative;
                         }
                     }
                 }
+
                 .WishlistDeleteBox {
                     button {
                         margin-top: 30px;
                         width: 250px;
                         height: 60px;
+
                         p {
-                        font-size: 30px;    
+                            font-size: 30px;
                         }
                     }
                 }
@@ -846,10 +880,43 @@ position: relative;
     }
 }
 
-@media screen and (max-width: 1153px) {
+@media screen and (max-width: 1800px) {
     .SpecialMenuBiggestBox {
         .container {
+            .specialMenuBoxDown {
+                background-color: orangered;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                flex-wrap: wrap;
+
+                .card {
+                    width: 300px;
+
+                    .cardImg {
+                        width: 300px;
+                        height: 220px;
+                    }
+
+                    .cardText {
+                        width: 250px;
+                        height: 160px;
+                        right: 22px;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 1153px) {
+    .SpecialMenuBiggestBox {
+
+        .container {
             .specialMenuBoxUp {
+
                 .FilterText {
                     .filterTextBox {
                         .filterUl {
@@ -868,12 +935,25 @@ position: relative;
         }
     }
 
-
-
 }
+
+@media screen and (max-width: 1220px) {
+    .SpecialMenuBiggestBox {
+        .container {
+            .specialMenuBoxDown {
+                .card {
+                    height: 300px;
+                }
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 860px) {
     .SpecialMenuBiggestBox {
+
         padding: 0px 0px;
+
         .container {
             .specialMenuBoxUp {
                 .FilterText {
@@ -894,10 +974,10 @@ position: relative;
     .SpecialMenuBiggestBox {
         .container {
             .specialMenuBoxDown {
-                    .card{
-                        margin-bottom: 100px;
-                    }
+                .card {
+                    margin-bottom: 100px;
                 }
+            }
         }
     }
 }
@@ -910,6 +990,7 @@ position: relative;
             }
         }
     }
+
     .SpecialMenuBiggestBox {
         .container {
             .specialMenuBoxUp {
@@ -918,6 +999,7 @@ position: relative;
                         font-size: 20px;
                     }
                 }
+
                 .FilterText {
                     .filterTextBox {
                         .filterUl {

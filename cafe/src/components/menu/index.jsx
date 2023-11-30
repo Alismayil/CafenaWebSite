@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './menu.scss'
-import axios from "axios";
 import { PiBasket } from "react-icons/pi";
 import { FaRegEye } from "react-icons/fa";
 import { TiDelete } from "react-icons/ti";
@@ -9,126 +8,51 @@ import { TbBasketPlus } from "react-icons/tb";
 import { TbHeartPlus } from "react-icons/tb";
 import { TbHeartX } from "react-icons/tb";
 import { BasketContext } from '../../context/BasketContext/basketContext';
+import { WishlistContext } from '../../context/WishlistContext/wishlistContext';
+import UseFetch from '../../hook/UseFetch';
 
 
 function PopularMenu({changeModalState,setDetailId}) {
+    
     // ------------card---------------
     const [card, setCard] = useState([])
-    // const [basket, setBasket] = useLocal("basket")
-    const [wishlist, setWishlist] = useLocal("wishlist")
-    const [heart, setHeart] = useLocal("heart")
     const [catagory, setCatagory] = useState("All")
+    // -----------------changeBtnColor-----------
+    const [changeBtnColor, setChangeBtnColor] = useState([])
+    const [updateCatagory, setUpdateCatagory] = useState([])
 
     const  {handleAddBasket,handleRemove,handleCountVal,handleDeleteBasket,basket,subtotal} = useContext(BasketContext)
+    const { handleAddWishlist,handleRemoveWishlist,handleClearWishlist, wishlist,setWishlist,heart}=useContext(WishlistContext)
 
-    const BaseUrl = "http://localhost:3000/coffee"
+    const url = "http://localhost:3000/coffee"
+
+    // --------useFetch------------
+    function Callback(data) {
+    setCard(data)
+    }
+
+    UseFetch(url,Callback)
 
     // ------------catagory---------------
   function handleCatagory(e) {
     setCatagory(e.target.value)
   }
     
+//  ---------ClickedBtnColor-----------
+function handleClickedCatagory(e) {
+    changeBtnColor.shift()
+    setChangeBtnColor([
+        ...changeBtnColor,
+        id
+    ])
+    updateCatagory(e.target.value)
 
-    // ------------axios---------------
+}
+function isclicked(id) {
+    return changeBtnColor.indexOf(id) !== -1
     
-    async function Datas() {
-        const res = await axios.get(`${BaseUrl}`)
-        setCard(res.data)
-    }
-
-    useEffect(() => {
-        Datas()
-    }, [])
-
-    // ------------basket---------------
-    // let subtotal=0
-    // basket.forEach(element => {
-    //     subtotal+=(element.total)
-    // });
-
-    // function handleAddBasket(x) {
-    //     const elemnetIndex=basket.findIndex(item=>item.id === x.id)
-    //     if (elemnetIndex !== -1) {
-    //         const newBasket =[...basket]
-    //         newBasket[elemnetIndex].count++
-    //         newBasket[elemnetIndex].total=newBasket[elemnetIndex].count*newBasket[elemnetIndex].newPrice
-    //         setBasket(newBasket)
-            
-    //     }
-    //     else{
-    //     const total=x.newPrice
-    //     setBasket([...basket, {...x, count:1, total:total}])
-
-    //     }
-    // }
-    // function handleRemove(id) {
-    //     setBasket(basket.filter(x=>x.id !== id))
-    // }
-    // function handleDeleteBasket() {
-    //     setBasket([])
-    // }
-
-    // function handleCountVal(isAdd ,x ) {
-    //     const elemnetIndex=basket.findIndex(item=>item.id === x.id)
-    //     const newBasket =[...basket]
-    //     if (isAdd) {
-    //         if (newBasket[elemnetIndex].count === 30) {
-    //             return
-    //         }
-    //         newBasket[elemnetIndex].count++
-    //         newBasket[elemnetIndex].total=newBasket[elemnetIndex].count*newBasket[elemnetIndex].newPrice
-    //         setBasket(newBasket)
-            
-    //     }
-        
-    //     else{
-    //         newBasket[elemnetIndex].count--
-    //         newBasket[elemnetIndex].total=newBasket[elemnetIndex].count*newBasket[elemnetIndex].newPrice
-    //         setBasket(newBasket)
-    //     if (newBasket[elemnetIndex].count === 0) {
-    //             setBasket(basket.filter(item=>item.id !== x.id))
-    //         }
-            
-    //     }
-        
-    // }
-
-
-    // ------------wishlist---------------
-    function handleAddWishlist(x) {
-        
-        const elementIndex=wishlist.findIndex(item=>item.id === x.id)
-        if (elementIndex=== -1) {
-        setWishlist([...wishlist, {...x}])
-        
-    }
-    else {
-        setWishlist(wishlist.filter(item=>item.id !== x.id))
-        
-    }
-
-        const heartIcon=heart.includes(x.id)
-        if (heartIcon) {
-            setHeart(heart.filter(id=>id !== x.id))
-            
-        }
-        else{
-                setHeart([...heart, x.id])
-            }
-        
-    }
-     function handleRemoveWishlist(id) {
-        setWishlist(wishlist.filter(x=>x.id !== id))
-        setHeart(heart.filter(x=>x !== id))
-
-     }
-     function handleClearWishlist() {
-        setHeart([])
-        setWishlist([])
-     }
-
-
-     
+}
+    
 
 
     return (
@@ -166,19 +90,51 @@ function PopularMenu({changeModalState,setDetailId}) {
                         <div className='FilterText'>
                             <div className='filterTextBox'>
                                 <div className='filterUl'>
-                                    <div>
-                                    <button onClick={(e)=>handleCatagory(e)} value='All'> ALL
-                                    
-                                    
-                                    
-                                    </button>
-                                    </div>
-                                    <button onClick={(e)=>handleCatagory(e)} value='1'> CHOCOLATE</button>
-                                    <button onClick={(e)=>handleCatagory(e)} value='2'> COFFEE</button>
-                                    <button onClick={(e)=>handleCatagory(e)} value='3'> SANDWICHES</button>
-                                    <button onClick={(e)=>handleCatagory(e)} value='4'> SWEETS</button>
-                                    <button onClick={(e)=>handleCatagory(e)} value='5'> BLACK TEA</button>
-                                    <button onClick={(e)=>handleCatagory(e)} value='6'> GREAN TEA</button>
+                                    {/* <button onClick={(e)=>{handleCatagory(e)
+                                                    changeBtnColor(e,1)
+                                                }}></button> */}
+                                                <button className={isclicked(1) ? "btnActive" : ""} 
+                                                    onClick={(e)=>{handleCatagory(e)
+                                                    handleClickedCatagory(e,1)
+                                                }} value='All'> ALL
+                                                </button>
+                                                <button className={isclicked(2) ? "btnActive" : ""} 
+                                                    onClick={(e)=>{handleCatagory(e)
+                                                    handleClickedCatagory(e,2)
+                                                }} value='1'> CHOCOLATE
+                                                </button >
+                                                <button className={isclicked(3) ? "btnActive" : ""} 
+                                                    onClick={(e)=>{handleCatagory(e)
+                                                    handleClickedCatagory(e,3)
+                                                }} value='2'> COFFEE
+                                                </button>
+                                                <button className={isclicked(4) ? "btnActive" : ""} 
+                                                    onClick={(e)=>{handleCatagory(e)
+                                                    handleClickedCatagory(e,4)
+                                                }} value='3'> SANDWICHES
+                                                </button>
+                                                <button className={isclicked(5) ? "btnActive" : ""} 
+                                                    onClick={(e)=>{handleCatagory(e)
+                                                    handleClickedCatagory(e,5)
+                                                }} value='4'> SWEETS
+                                                </button>
+                                                <button className={isclicked(6) ? "btnActive" : ""} 
+                                                    onClick={(e)=>{handleCatagory(e)
+                                                    handleClickedCatagory(e,6)
+                                                }} value='5'> BLACK TEA
+                                                </button>
+                                                <button className={isclicked(7) ? "btnActive" : ""} 
+                                                    onClick={(e)=>{handleCatagory(e)
+                                                    handleClickedCatagory(e,7)
+                                                }} value='6'> GREAN TEA
+                                                </button>                 
+                                    {/* <button className={isclicked(1) ? "btnActive" : ""} onClick={(e)=>handleCatagory(e)} value='All'> ALL</button>
+                                    <button className={isclicked(2) ? "btnActive" : ""} onClick={(e)=>handleCatagory(e)} value='1'> CHOCOLATE</button >
+                                    <button className={isclicked(3) ? "btnActive" : ""} onClick={(e)=>handleCatagory(e)} value='2'> COFFEE</button>
+                                    <button className={isclicked(4) ? "btnActive" : ""} onClick={(e)=>handleCatagory(e)} value='3'> SANDWICHES</button>
+                                    <button className={isclicked(5) ? "btnActive" : ""} onClick={(e)=>handleCatagory(e)} value='4'> SWEETS</button>
+                                    <button className={isclicked(6) ? "btnActive" : ""} onClick={(e)=>handleCatagory(e)} value='5'> BLACK TEA</button>
+                                    <button className={isclicked(7) ? "btnActive" : ""} onClick={(e)=>handleCatagory(e)} value='6'> GREAN TEA</button>                                */}
                                 </div>
                             </div>
                         </div>

@@ -26,7 +26,6 @@ function DetailPage({ modalState, detailId, handleOpenDetailPage }) {
             <div className='detailBox'>
                 <div className='detailImgBox'>
                     <img src={detail.img}></img>
-
                 </div>
                 <div className='detailTextBox'>
                     <>

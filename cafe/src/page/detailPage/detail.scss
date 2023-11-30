@@ -16,7 +16,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 4;
-    background-color: rgba(0, 0, 0,0.6);
+    background-color: rgba(0, 0, 0, 0.6);
     width: 100%;
     height: 100vh;
     @include Myflex;
@@ -34,84 +34,96 @@
             height: 100%;
             @include Myflex;
         }
-            .detailTextBox {
-                width: 67%;
-                height: 100%;
-                padding: 30px 0px;
-                gap: 10px;
+
+        .detailTextBox {
+            width: 67%;
+            height: 100%;
+            padding: 30px 0px;
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+
+            .detailPageCloseBtn {
+                background-color: black;
+                width: 40px;
+                height: 40px;
+                border-radius: 7px;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                border: none;
+                color: white;
+                cursor: pointer;
+                transition: 0.7s;
+
+                @include Myflex;
+
+                font-size: 20px;
+            }
+
+            .detailPageCloseBtn:hover {
+                background-color: #C7A17A;
+                transition: 0.7s;
+            }
+
+            .detailName {
+                font-size: 25px;
+            }
+
+            .detailRating {
+                .fa-solid {
+                    color: #C7A17A;
+                }
+            }
+
+            .detailPrice {
+                font-size: 30px;
+            }
+
+            .detailAvailable {
                 display: flex;
-                flex-direction: column;
-                position: relative;
-                .detailPageCloseBtn{
-                    background-color: black;
-                    width: 40px;
-                    height: 40px;
-                    border-radius: 7px;
-                    position: absolute;
-                    top: 20px;
-                    right: 20px;
-                    border: none;
-                    color: white;
-                    cursor: pointer;
-                    transition: 0.7s;
+                gap: 2px;
+                font-size: 22px;
 
-            @include Myflex;
-
-                    font-size: 20px;
-                }
-                .detailPageCloseBtn:hover{
-                    background-color: #C7A17A;
-                    transition: 0.7s;
-                }
-                .detailName{
-                    font-size: 25px;
-                }
-                .detailRating{
-                    .fa-solid{
-                        color: #C7A17A;
-                    }
-                }
-                .detailPrice{
-                    font-size: 30px;
-                }.detailAvailable{
-                    display: flex;
-                    gap: 2px;
-                    font-size: 22px;
-
-                    .detailAvailableText{
+                .detailAvailableText {
                     color: gray;
-                    }
-                  
-                }
-                .detailComment{
-                    color: gray;
-                    max-width: 90%;
-                    font-size: 17px;
                 }
 
-                .detailsBtn {
-                    display: flex;
-                    margin: 15px 0px;
-                    gap: 15px;
+            }
+
+            .detailComment {
+                color: gray;
+                max-width: 90%;
+                font-size: 17px;
+            }
+
+            .detailsBtn {
+                display: flex;
+                margin: 15px 0px;
+                gap: 15px;
+                height: 50px;
+                width: 440px;
+
+                .detailsBtnCounterBox {
+                    @include Myflex;
+                    width: 150px;
                     height: 50px;
-                    width: 440px;
-                .detailsBtnCounterBox{
-                        @include Myflex;
-                        width: 150px;
+                    gap: 5px;
+
+                    input {
                         height: 50px;
-                        gap: 5px;
-                        input{
-                            height: 50px;
-                            width: 100%;
-                            border-radius: 5px;
-                            border: 1px solid gray;
-                            padding: 0px 10px;
-                        }
-                }
-                .detailsAddBtn {
-                        width: 180px;
-                        height:100% ;
+                        width: 100%;
                         border-radius: 5px;
+                        border: 1px solid gray;
+                        padding: 0px 10px;
+                    }
+                }
+
+                .detailsAddBtn {
+                    width: 180px;
+                    height: 100%;
+                    border-radius: 5px;
                     position: relative;
                     background-color: #C7A17A;
                     border-radius: 5px;
@@ -150,19 +162,159 @@
                         transition: 0.7s;
                     }
                 }
+            }
+
+            .detailCategory {
+                display: flex;
+                gap: 5px;
+                font-size: 14px;
+
+                .detailCategoryText {
+                    color: gray;
                 }
-                .detailCategory{
-                    display: flex;
-                    gap: 5px;
+            }
+
+        }
+    }
+}
+@media screen and (max-width: 1800px) {
+    .detailPage {
+        .detailBox {
+            height: 450px;
+        }
+    }
+}
+@media screen and (max-width: 1046px) {
+    .detailPage {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 4;
+        background-color: rgba(0, 0, 0, 0.6);
+        width: 100%;
+        height: 100vh;
+        @include Myflex;
+
+        .detailBox {
+            background-color: white;
+            height: 450px;
+            width: 57%;
+            border-radius: 10px;
+            @include Myflex;
+
+            flex-direction: column-reverse;
+
+            .detailImgBox {
+                border-radius: 10px;
+                width: 100px;
+                height: 100%;
+                @include Myflex;
+
+                img {
+                    max-width: 100px;
+                    height: 100px;
+                }
+            }
+
+            .detailTextBox {
+                width: 90%;
+                height: 300px;
+                padding: 5px 0px;
+
+                .detailName {
+                    font-size: 15px;
+                }
+
+                .detailRating {
+                    font-size: 10px;
+                }
+
+                .detailPrice {
+                    font-size: 20px;
+                }
+
+                .detailAvailable {
                     font-size: 14px;
-                    .detailCategoryText{
-                        color: gray;
+                }
+
+                .detailComment {
+                    font-size: 14px;
+                }
+
+                .detailsBtn {
+                    height: 30px;
+                    width: 330px;
+                    gap: 2px;
+
+                    .detailsBtnCounterBox {
+                        height: 30px;
+
+                        input {
+                            height: 30px;
+                            width: 70px;
+                        }
+                    }
+
+                    .detailsAddBtn {
+                        width: 100px;
+
+                        p {
+                            font-size: 15px;
+                        }
                     }
                 }
-               
+
+                .detailCategory {
+                    font-size: 10px;
+                }
             }
         }
     }
-    .detailPage.close{
-        display: none;
+}
+@media screen and (max-width: 524px) {
+    .detailPage {
+        .detailBox {
+            background-color: white;
+            width: 80%;
+            padding: 5px 0px;
+        }
     }
+}
+@media screen and (max-width: 375px) {
+    .detailPage {
+        .detailBox {
+            .detailImgBox {
+                width: 70px;
+                height: 100px;
+                padding: 0px;
+                margin: 10px;
+            }
+
+            .detailTextBox {
+                .detailPageCloseBtn {
+                    width: 20px;
+                    height: 20px;
+                    font-size: 10px;
+                    top: 5px;
+                    right: 5px;
+                }
+
+                .detailsBtn {
+                    height: 20px;
+                    width: 200px;
+                    margin: 5px 0px;
+
+                    .detailsBtnCounterBox {
+                        height: 20px;
+
+                        input {
+                            height: 20px;
+                            width: 70px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
