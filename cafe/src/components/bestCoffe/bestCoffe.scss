@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+#root{
+  overflow: hidden;
+}
+#aboutUs {
+  position: relative;
+  background-color: #f4f1ee;
+  z-index: 0;
+  width: 100%;
+ 
+  .container {
+    width: 100%;
+    display: flex;
+    gap: 80px;
+    padding-top: 120px;
+    padding-bottom: 130px;
+
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    .rightImg {
+      position: absolute;
+      right: 0;
+      top: -60px;
+    }
+
+    .leftImg {
+      position: absolute;
+      left: 0;
+    }
+
+    .contentImgs {
+      background-color: transparent;
+      z-index: 2;
+      margin-left: 100px;
+
+      .imgContainer {
+        position: relative;
+
+        .bigImg {
+          img {
+            max-width: none;
+          }
+        }
+
+        .smallImg {
+          position: absolute;
+          bottom: 0;
+          left: -130px;
+        }
+      }
+    }
+
+    .textContent {
+      width: 530px;
+      padding-top: 45px;
+      z-index: 2;
+
+      .subTitle {
+        margin-bottom: 30px;
+
+        .textSubTitle {
+          background-color: var(--main-color);
+          letter-spacing: 2px;
+          color: white;
+          padding: 2px 13px;
+          font-size: 16px;
+          border-radius: 3px;
+          background-color:#C7A17A ;
+          
+        }
+      }
+
+      .mainTitle {
+        margin-bottom: 20px;
+
+        .title {
+          color: black;
+          text-transform: uppercase;
+          font-family: "Bebas Neue", sans-serif;
+          font-size: 55px;
+          line-height: 57px;
+        }
+      }
+
+      .description {
+        font-size: 18px;
+        color: var(--light-grey-color);
+
+        .initalDesc {
+          margin-bottom: 45px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  #aboutUs {
+   
+    .container {
+        
+      flex-wrap: wrap;
+      .contentImgs {
+        margin-left: 0; 
+        .imgContainer {
+          .smallImg {
+            bottom: 0;
+            right: 0;
+            left: auto;
+            transform: translateX(50%);
+          }
+        }
+      }
+      .textContent {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  #aboutUs {
+
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+     
+      .contentImgs {
+        flex-direction: column;
+        display: flex;  
+        .imgContainer {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          .bigImg{
+            margin: 0 30px;
+            img{
+              max-width: 100%;
+            }
+          }
+          .smallImg {
+            display: flex;
+            position: static;
+            margin-top: 40px;
+            margin-right: 50%;
+          }
+        }
+      }
+      .textContent{
+        padding: 0 25px;
+        max-width: 100%;
+      }
+    }
+  }
+  
+}

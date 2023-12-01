@@ -171,6 +171,7 @@ nav {
       justify-content: flex-start;
 .basketNavbarIcons{
   position: relative;
+  
   .basketProductNumber{
     background-color: #80A093;
     color: white;
@@ -188,11 +189,11 @@ nav {
 }
 
       .hamburger {
-        margin-left: 36px;
+        margin-left: 25px;
         cursor: pointer;
       }
       .basket {
-        margin-left: 36px;
+        margin-left: 25px;
         cursor: pointer;
       }
       .search {
@@ -200,7 +201,7 @@ nav {
         position: relative;
       }
       .wishlist{
-        margin-left: 36px;
+        margin-left: 25px;
         cursor: pointer;
       }
       .search_form {

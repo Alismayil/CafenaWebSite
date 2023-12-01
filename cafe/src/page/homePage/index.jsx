@@ -4,6 +4,9 @@ import PopularMenu from '../../components/menu'
 import WishlistSideBAr from '../../components/wishlist'
 import DetailPage from '../detailPage'
 import Blog from '../../components/blog'
+import Grade from '../../components/grade'
+import BestCoffee from '../../components/bestCoffe'
+import Header from '../../layout/header'
 
 function Homepage() {
   const [openDetailPage, setopenDetailPage] = useState(false)
@@ -18,7 +21,10 @@ function Homepage() {
     <>
       <BasketSidebar />
       <WishlistSideBAr />
+      <Header/>
+      <BestCoffee/>
       <PopularMenu changeModalState={handleOpenDetailPage} setDetailId={setDetailId} />
+      <Grade/>
       {detailId && <DetailPage modalState={openDetailPage} detailId={detailId} handleOpenDetailPage={handleOpenDetailPage} />}
       <Blog/>
 
