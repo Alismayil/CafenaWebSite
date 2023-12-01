@@ -1,15 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react'
-import './menu.scss'
-import { PiBasket } from "react-icons/pi";
+import React, { useContext, useState } from 'react';
 import { FaRegEye } from "react-icons/fa";
-import { TiDelete } from "react-icons/ti";
-import useLocal from '../../hook/UseLocal';
-import { TbBasketPlus } from "react-icons/tb";
-import { TbHeartPlus } from "react-icons/tb";
-import { TbHeartX } from "react-icons/tb";
+import { PiBasket } from "react-icons/pi";
 import { BasketContext } from '../../context/BasketContext/basketContext';
-import UseFetch from '../../hook/UseFetch';
 import { WishlistContext } from '../../context/WishlistContext/wishlistContext';
+import UseFetch from '../../hook/UseFetch';
+import './menu.scss';
 
 
 
@@ -61,7 +56,7 @@ function PopularMenu({ changeModalState, setDetailId }) {
     return (
 
         <>
-            <div className='popularMenu'>
+            {/* <div className='popularMenu'>
                 <div className='popularMenuLeft'>
                     <div className='img1'>
                         <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/menu-shape-1.png" alt="" />
@@ -78,8 +73,20 @@ function PopularMenu({ changeModalState, setDetailId }) {
                         <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/menu-shape-4.png" alt="" />
                     </div>
                 </div>
-            </div>
+            </div> */}
             <div className='SpecialMenuBiggestBox'>
+            <div className='img1'>
+                        <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/menu-shape-1.png" alt="" />
+                    </div>
+                    <div className='img2'>
+                        <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/menu-shape-2.png" alt="" />
+                    </div>
+                    <div className='img3'>
+                        <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/menu-shape-3.png" alt="" />
+                    </div>
+                    <div className='img4'>
+                        <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/menu-shape-4.png" alt="" />
+                    </div>
                 <div className="container">
                     <div className='specialMenuBoxUp'>
                         <div className='specialBox'>
@@ -138,8 +145,7 @@ function PopularMenu({ changeModalState, setDetailId }) {
                                             handleClickedCatagory(e, 7)
                                         }} value='6'> GREAN TEA
                                     </button>
-                                    <button onClick={handleOpenSideBar}>basket</button>
-                                    <button onClick={handleOpenWishlistBar}>wishlist</button>
+                                   
                                     {/* <button className={isclicked(1) ? "btnActive" : ""} onClick={(e)=>handleCatagory(e)} value='All'> ALL</button>
                                     <button className={isclicked(2) ? "btnActive" : ""} onClick={(e)=>handleCatagory(e)} value='1'> CHOCOLATE</button >
                                     <button className={isclicked(3) ? "btnActive" : ""} onClick={(e)=>handleCatagory(e)} value='2'> COFFEE</button>

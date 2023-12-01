@@ -11,48 +11,79 @@
     align-items: center;
 }
 
-.popularMenu {
-    background-color: white;
-    width: 100%;
-    min-height: 100vh;
-    @include Myflex;
-    position: relative;
-
-    .popularMenuLeft {
-        width: 50%;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        img {
-            max-width: 300px;
-        }
-    }
-
-    .popularMenuRight {
-        width: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: end;
-        height: 100vh;
-
-        img {
-            max-width: 300px;
-        }
-    }
+#MenuPage{
+    background-color: aqua;
+    min-height: 95vh;
 }
+.notMean{
+    width: 100%;
+    height: 92px;
+}
+// .popularMenu {
+//     background-color: white;
+//     width: 100%;
+//     min-height: 110vh;
+//     @include Myflex;
+//     position: relative;
+
+//     .popularMenuLeft {
+//         width: 50%;
+//         height: 100vh;
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: space-between;
+
+//         img {
+//             max-width: 300px;
+//         }
+//     }
+
+//     .popularMenuRight {
+//         width: 50%;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: end;
+//         height: 100vh;
+
+//         img {
+//             max-width: 300px;
+//         }
+//     }
+// }
 
 .SpecialMenuBiggestBox {
     min-height: 100vh;
     width: 100%;
-    position: absolute;
-    top: 0;
+    position: relative;
+    top: 92px;
     left: 0;
     padding: 0px 150px;
-
+.img1{
+    position: absolute;
+    left: 0;
+    z-index: -1;
+}
+.img2{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+}
+.img3{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+.img4{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
     .container {
         width: 100%;
+        min-height: 100vh;
 
         .specialMenuBoxUp {
             height: 25%;
@@ -137,7 +168,6 @@
         }
 
         .specialMenuBoxDown {
-            background-color: orangered;
             min-height: 100vh;
             display: flex;
             justify-content: center;
@@ -478,7 +508,7 @@
         // }
 
         // .WishlistBox {
-        //     display: block;
+        //     display: none;
         //     margin-top: 20px;
         //     min-height: 100vh;
         //     width: 25%;
@@ -665,11 +695,11 @@
     }
 }
 
-.btnActive{
-    background-color: green;
-    width: 100px;
-    height: 100px;
-}
+// .btnActive{
+//     background-color: green;
+//     width: 100px;
+//     height: 100px;
+// }
 
 @media screen and (min-width: 1801px) {
     .SpecialMenuBiggestBox {
@@ -884,7 +914,6 @@
     .SpecialMenuBiggestBox {
         .container {
             .specialMenuBoxDown {
-                background-color: orangered;
                 min-height: 100vh;
                 display: flex;
                 justify-content: center;

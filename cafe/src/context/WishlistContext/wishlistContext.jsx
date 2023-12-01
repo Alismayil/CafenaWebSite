@@ -30,6 +30,23 @@ const WishlistProvider = ({ children }) => {
       setHeart([...heart, x.id]);
     }
   }
+// ------------yoxlama--------------------
+  function handleAddModalWishlist(item) {
+    const elementIndex = wishlist.findIndex(x => x.id === item.id);
+    if (elementIndex === -1) {
+      setWishlist([...wishlist, { ...item }]);
+    } else {
+      setWishlist(wishlist.filter(x => x.id !== item.id));
+    }
+
+    const heartIcon = heart.includes(item.id);
+    if (heartIcon) {
+      setHeart(heart.filter(id => id !== item.id));
+    } else {
+      setHeart([...heart, item.id]);
+    }
+  }
+
   function handleRemoveWishlist(id) {
     setWishlist(wishlist.filter((x) => x.id !== id));
     setHeart(heart.filter((x) => x !== id));
@@ -49,6 +66,7 @@ const WishlistProvider = ({ children }) => {
     handleOpenWishlistBar,
     setOpenWishlistSide,
     openWishlistSide,
+    handleAddModalWishlist
   };
 
   return (

@@ -23,7 +23,7 @@ const WishlistSideBAr = () => {
                     wishlist && wishlist.map((item) => (
                         <div className='wishlistCard'>
                             <div className='wishlistImgBox'>
-                                <img src={item.image} alt="" />
+                                <img src={item.img} alt="" />
                             </div>
                             <div className='WishlistTextBox'>
                                 <h5>{item.name}</h5>

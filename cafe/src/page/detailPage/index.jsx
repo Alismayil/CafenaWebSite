@@ -3,11 +3,13 @@ import axios from 'axios';
 import './detail.scss'
 import { IoMdClose } from "react-icons/io";
 import { BasketContext } from '../../context/BasketContext/basketContext';
+import { WishlistContext } from '../../context/WishlistContext/wishlistContext';
 
 function DetailPage({ modalState, detailId, handleOpenDetailPage }) {
 
     const [detail, setDetail] = useState([])
-    const { handleAddBasket, handleRemove, handleCountVal, handleDeleteBasket, basket, subtotal, handleModalAdd } = useContext(BasketContext)
+    const {   basket, handleModalAdd } = useContext(BasketContext)
+    const { handleAddModalWishlist, heart}=useContext(WishlistContext)
     const [detailCount, setdetailCount] = useState(detailId || basket.find(x => x.id === detailId).count)
     const [basketItems, setBasketItems] = useState(localStorage.getItem("basket") ? JSON.parse(localStorage.getItem("basket")) : [])
     const BaseUrl = `http://localhost:3000/coffee/${detailId}`
@@ -43,20 +45,27 @@ function DetailPage({ modalState, detailId, handleOpenDetailPage }) {
                             <i className="fa-solid fa-star"></i>
                             <i className="fa-regular fa-star" style={{ color: " #c7a17a" }}></i>
                         </div>
-                        <p className='detailPrice'>${detail.price}.00</p>
+                        <p className='detailPrice'>${detail.newPrice}.00</p>
                         <p className='detailAvailable'>Available: <p className='detailAvailableText'>{detail.available}</p></p>
                         <p className='detailComment'>{detail.comment}</p>
                         <div className='detailsBtn'>
                             <div className='detailsBtnCounterBox'>
                                 <p>QTY</p>
-                                <div><input type="number" onChange={(e) => setdetailCount(e.target.value)} placeholder='1' value={detailCount} /></div>
+                                <div><input type="number" onChange={(e) => setdetailCount(e.target.value)} placeholder='1' value={detailCount} min="1" max="30" /></div>
                             </div>
                             <div className='detailsAddBtn'>
                                 <p onClick={() => {
                                     handleModalAdd(detail, detailCount)
                                 }
                                 }>Add to cart</p>
-                                <div className='WishlistBtnHover'></div></div>
+                                <div className='WishlistBtnHover'></div>
+                                </div>
+                                <button className='detailToWishlist' onClick={()=>handleAddModalWishlist(detail)}>
+                                <div className='detailToWishlistHover'></div>
+                                   <p>
+                                   <i className={`${heart.includes(detail.id) ? "fa-solid" : "fa-regular"} fa-heart`}></i>
+                                    </p>
+                                </button>
                         </div>
                         <p className='detailCategory'>CATEGORY: <p className='detailCategoryText'>{detail.category}</p></p>
                         <p className='detailCategory'>SKU: <p className='detailCategoryText'>{detail.sku}</p> </p>

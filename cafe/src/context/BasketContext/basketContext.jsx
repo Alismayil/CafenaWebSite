@@ -15,6 +15,7 @@ const BasketProvider = ({ children }) => {
         subtotal += (element.total)
     });
 
+    
     function handleAddBasket(x) {
         const elemnetIndex = basket.findIndex(item => item.id === x.id)
         if (elemnetIndex !== -1) {
@@ -69,19 +70,19 @@ const BasketProvider = ({ children }) => {
     }
     function handleModalAdd(item, count) {
         const elemnetIndex = basket.findIndex(x => x.id === item.id)
-
        
         if (elemnetIndex !== -1) {
-            console.log("item basketde var")
+           
             const newBasket = [...basket]
             newBasket[elemnetIndex].count = count
-            console.log(newBasket);
+            newBasket[elemnetIndex].total = newBasket[elemnetIndex].count * newBasket[elemnetIndex].newPrice
             setBasket(newBasket)
-
+        
         }
         else {
-            console.log("bu element yoxdur");
-            setBasket([...basket, { ...item, count: count }])
+            
+            const total = item.newPrice
+            setBasket([...basket, { ...item, count: count, total:total }])
         }
     }
 
@@ -98,6 +99,7 @@ const BasketProvider = ({ children }) => {
         handleOpenSideBar,
         setOpenBasketSide,
         openBasketSide
+        
 
     }
     return (

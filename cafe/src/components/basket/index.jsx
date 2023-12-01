@@ -24,7 +24,7 @@ const BasketSidebar = () => {
                             <div className='basketCard'>
                                <div className='removeBtnBasket'> <button onClick={()=>handleRemove(item.id)}><TiDelete className='removeIcon' /></button></div>
                                 <div className='BasketBoxImg'>
-                                <img src={item.image} alt="" />
+                                <img src={item.img} alt="" />
                                 </div>
                                <div className='nameAndPriceBox'>
                                <p>{item.name}</p>

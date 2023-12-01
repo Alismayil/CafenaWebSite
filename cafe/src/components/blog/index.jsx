@@ -5,7 +5,7 @@ import { IoShareSocialOutline } from "react-icons/io5";
 
 const Blog = () => {
   return (
-   <section>
+   <section id='blogPage'>
      <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/blog-shape-2-2.png" alt="" className='Blog_bg_top'/>
     <div className='Blog_container'>
        

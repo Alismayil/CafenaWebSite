@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
-import './navbar.scss';
 import { CiSearch } from 'react-icons/ci';
-import { RxHamburgerMenu } from 'react-icons/rx';
-import { FaShoppingBasket } from 'react-icons/fa';
+import { IoMdHeartEmpty } from "react-icons/io";
 import { IoClose } from 'react-icons/io5';
-import { FaRegHeart } from "react-icons/fa";
-import { Link, Outlet } from 'react-router-dom';
-import { BasketContext } from '../../context/BasketContext/basketContext';
+import { PiBasket } from "react-icons/pi";
+import { RxHamburgerMenu } from 'react-icons/rx';
+import { Link } from 'react-router-dom';
+import BasketProvider, { BasketContext } from '../../context/BasketContext/basketContext';
 import { WishlistContext } from '../../context/WishlistContext/wishlistContext';
+import './navbar.scss';
 
 
 // ------------------------------------
@@ -18,8 +18,10 @@ import { WishlistContext } from '../../context/WishlistContext/wishlistContext';
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState('/');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const { handleOpenSideBar } = useContext(BasketContext)
+  const { handleOpenSideBar, basket } = useContext(BasketContext)
   const { handleOpenWishlistBar } = useContext(WishlistContext)
+
+// -----------yoxlama----------
 
   // const [wishlistOpen,setWishlistOpen]=useState(false);
   const [isSecondNavOpen, setIsSecondNavOpen] = useState(false);
@@ -86,8 +88,12 @@ const Navbar = () => {
           </div>
           <IoClose className='close' style={closeIconStyle} onClick={handleIconClick} />
           <RxHamburgerMenu className='hamburger' onClick={handleHamburgerClick} />
-          <FaRegHeart className='wishlist' onClick={handleOpenWishlistBar} />
-          <FaShoppingBasket className='basket' onClick={handleOpenSideBar} />
+          <IoMdHeartEmpty  className='wishlist' onClick={handleOpenWishlistBar} />
+         <div className='basketNavbarIcons'> <PiBasket className='basket' onClick={handleOpenSideBar} />
+        <div className='basketProductNumber'>
+          <p>{basket.length}</p>
+        </div>
+         </div>
         </div>
       </div>
       <div className={secondNavContainerStyle}>
