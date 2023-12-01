@@ -1,64 +1,59 @@
-import {  createContext } from "react";
+import { createContext, useState } from "react";
 
+export const WishlistContext = createContext();
 
-export const WishlistContext=createContext()
-
-import React from 'react'
+import React from "react";
 import useLocal from "../../hook/UseLocal";
 
+const WishlistProvider = ({ children }) => {
+  const [wishlist, setWishlist] = useLocal("wishlist");
+  const [heart, setHeart] = useLocal("heart");
 
+  // ------------openWishlistSideBar------------
+  const [openWishlistSide, setOpenWishlistSide] = useState(false);
 
-
-const WishlistProvider = ({children}) => {
-    const [wishlist, setWishlist] = useLocal("wishlist")
-    const [heart, setHeart] = useLocal("heart")
-
-function handleAddWishlist(x) {
-        
-    const elementIndex=wishlist.findIndex(item=>item.id === x.id)
-    if (elementIndex=== -1) {
-    setWishlist([...wishlist, {...x}])
-    
-}
-else {
-    setWishlist(wishlist.filter(item=>item.id !== x.id))
-    
-}
-
-    const heartIcon=heart.includes(x.id)
-    if (heartIcon) {
-        setHeart(heart.filter(id=>id !== x.id))
-        
+  function handleOpenWishlistBar() {
+    setOpenWishlistSide(!openWishlistSide);
+  }
+  function handleAddWishlist(x) {
+    const elementIndex = wishlist.findIndex((item) => item.id === x.id);
+    if (elementIndex === -1) {
+      setWishlist([...wishlist, { ...x }]);
+    } else {
+      setWishlist(wishlist.filter((item) => item.id !== x.id));
     }
-    else{
-            setHeart([...heart, x.id])
-        }
-    
-}
- function handleRemoveWishlist(id) {
-    setWishlist(wishlist.filter(x=>x.id !== id))
-    setHeart(heart.filter(x=>x !== id))
 
- }
- function handleClearWishlist() {
-    setHeart([])
-    setWishlist([])
- }
+    const heartIcon = heart.includes(x.id);
+    if (heartIcon) {
+      setHeart(heart.filter((id) => id !== x.id));
+    } else {
+      setHeart([...heart, x.id]);
+    }
+  }
+  function handleRemoveWishlist(id) {
+    setWishlist(wishlist.filter((x) => x.id !== id));
+    setHeart(heart.filter((x) => x !== id));
+  }
+  function handleClearWishlist() {
+    setHeart([]);
+    setWishlist([]);
+  }
 
-const data={
+  const data = {
     handleAddWishlist,
     handleRemoveWishlist,
     handleClearWishlist,
     wishlist,
     setWishlist,
-    heart
-}
+    heart,
+    handleOpenWishlistBar,
+    setOpenWishlistSide,
+    openWishlistSide,
+  };
 
   return (
-    <WishlistContext.Provider value={data}>
-        {children}
-    </WishlistContext.Provider>
-  )
-}
+    <WishlistContext.Provider value={data}>{children}</WishlistContext.Provider>
+  );
+};
 
-export default WishlistProvider
+export default WishlistProvider;

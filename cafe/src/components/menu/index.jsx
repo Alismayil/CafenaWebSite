@@ -8,12 +8,20 @@ import { TbBasketPlus } from "react-icons/tb";
 import { TbHeartPlus } from "react-icons/tb";
 import { TbHeartX } from "react-icons/tb";
 import { BasketContext } from '../../context/BasketContext/basketContext';
-import { WishlistContext } from '../../context/WishlistContext/wishlistContext';
 import UseFetch from '../../hook/UseFetch';
+import { WishlistContext } from '../../context/WishlistContext/wishlistContext';
+
+
+
 
 
 function PopularMenu({changeModalState,setDetailId}) {
     
+
+    
+
+
+
     // ------------card---------------
     const [card, setCard] = useState([])
     const [catagory, setCatagory] = useState("All")
@@ -21,8 +29,8 @@ function PopularMenu({changeModalState,setDetailId}) {
     const [changeBtnColor, setChangeBtnColor] = useState([])
     const [updateCatagory, setUpdateCatagory] = useState([])
 
-    const  {handleAddBasket,handleRemove,handleCountVal,handleDeleteBasket,basket,subtotal} = useContext(BasketContext)
-    const { handleAddWishlist,handleRemoveWishlist,handleClearWishlist, wishlist,setWishlist,heart}=useContext(WishlistContext)
+    const  { handleAddBasket, handleOpenSideBar} = useContext(BasketContext)
+    const { handleAddWishlist, heart,handleOpenWishlistBar}=useContext(WishlistContext)
 
     const url = "http://localhost:3000/coffee"
 
@@ -128,6 +136,8 @@ function isclicked(id) {
                                                     handleClickedCatagory(e,7)
                                                 }} value='6'> GREAN TEA
                                                 </button>                 
+                                                <button onClick={handleOpenSideBar}>basket</button>
+                                                <button onClick={handleOpenWishlistBar}>wishlist</button>
                                     {/* <button className={isclicked(1) ? "btnActive" : ""} onClick={(e)=>handleCatagory(e)} value='All'> ALL</button>
                                     <button className={isclicked(2) ? "btnActive" : ""} onClick={(e)=>handleCatagory(e)} value='1'> CHOCOLATE</button >
                                     <button className={isclicked(3) ? "btnActive" : ""} onClick={(e)=>handleCatagory(e)} value='2'> COFFEE</button>
@@ -172,7 +182,7 @@ function isclicked(id) {
                         }
 
                     </div>
-                    <div className='basketBox'>
+                    {/* <div className='basketBox'>
                         <div className='CartItems'><p>The product in the basket - {basket.length}</p></div>
                         {basket.length === 0 ? <div className='Emptybasket'> <TbBasketPlus /><p>Empty</p></div> :''}
                         
@@ -218,8 +228,8 @@ function isclicked(id) {
                         </button>  
                         </div>
                         </div>
-                    </div>
-                    <div className='WishlistBox'>
+                    </div> */}
+                    {/* <div className='WishlistBox'>
                     <div className='CartItems'><p>The product in the wishlist - {wishlist.length}</p></div>
                     {wishlist.length === 0 ? <div className='Emptywishlist'><TbHeartPlus /><p>Empty</p></div> :''}
                         <div className='WishlistMainBox'>
@@ -251,7 +261,7 @@ function isclicked(id) {
                         </div>
               
 
-                    </div>
+                    </div> */}
 
                 </div>
             </div>

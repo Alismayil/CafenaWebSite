@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export const BasketContext = createContext()
 
@@ -37,6 +37,12 @@ const BasketProvider = ({ children }) => {
         setBasket([])
     }
 
+    // ------------openBasketSideBar------------
+    const [openBasketSide, setOpenBasketSide] = useState(false)
+
+    function handleOpenSideBar() {
+        setOpenBasketSide(!openBasketSide)
+    }
     function handleCountVal(isAdd, x) {
         const elemnetIndex = basket.findIndex(item => item.id === x.id)
         const newBasket = [...basket]
@@ -88,8 +94,11 @@ const BasketProvider = ({ children }) => {
         basket,
         setBasket,
         subtotal,
-        handleModalAdd
-        
+        handleModalAdd,
+        handleOpenSideBar,
+        setOpenBasketSide,
+        openBasketSide
+
     }
     return (
 
