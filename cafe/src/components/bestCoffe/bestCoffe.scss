@@ -1,11 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-
+#root{
+  overflow: hidden;
+}
 #aboutUs {
   position: relative;
   background-color: #f4f1ee;
   z-index: 0;
   width: 100%;
-
+ 
   .container {
     width: 100%;
     display: flex;
@@ -13,6 +15,9 @@
     padding-top: 120px;
     padding-bottom: 130px;
 
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
     .rightImg {
       position: absolute;
       right: 0;
@@ -59,8 +64,10 @@
           letter-spacing: 2px;
           color: white;
           padding: 2px 13px;
-          font-size: 12px;
+          font-size: 16px;
           border-radius: 3px;
+          background-color:#C7A17A ;
+          
         }
       }
 
@@ -106,6 +113,7 @@
       }
       .textContent {
         width: 100%;
+        text-align: center;
       }
     }
   }
@@ -116,6 +124,7 @@
     .container {
       padding-left: 0;
       padding-right: 0;
+     
       .contentImgs {
         flex-direction: column;
         display: flex;  
@@ -139,7 +148,7 @@
       }
       .textContent{
         padding: 0 25px;
-        max-width: 100px;
+        max-width: 100%;
       }
     }
   }

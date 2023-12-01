@@ -19,7 +19,7 @@ const Grade = () => {
                         <div className='count1'><h6>01</h6></div>
                     </div>
                     <div className='text'>
-                        <h2>Americano Grade</h2>
+                        <h2>Americano Grade</h2><br />
                         <p>Curabitur semper erat a lacusey <br />
                             consequat, sit amet quam</p>
                     </div>
@@ -30,7 +30,7 @@ const Grade = () => {
                         <div className='count2'><h6>02</h6></div>
                     </div>
                     <div className='text'>
-                        <h2>Arebica Green</h2>
+                        <h2>Arebica Green</h2><br />
                         <p>Curabitur semper erat a lacusey <br />
                             consequat, sit amet quam</p>
                     </div>
@@ -41,7 +41,7 @@ const Grade = () => {
                         <div className='count1'><h6>03</h6></div>
                     </div>
                     <div className='text'>
-                        <h2>Mixed Rosted</h2>
+                        <h2>Mixed Rosted</h2><br />
                         <p>Curabitur semper erat a lacusey <br />
                             consequat, sit amet quam</p>
                     </div>
@@ -52,7 +52,7 @@ const Grade = () => {
                         <div className='count2'><h6>04</h6></div>
                     </div>
                     <div className='text'>
-                        <h2>Robasta Rosted</h2>
+                        <h2>Robasta Rosted</h2><br />
                         <p>Curabitur semper erat a lacusey <br />
                             consequat, sit amet quam</p>
                     </div>

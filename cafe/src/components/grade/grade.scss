@@ -1,14 +1,18 @@
 
 #Grade {
+    background-image: url(https://xpressrow.com/html/cafena/cafena/assets/images/shape/top-grade-shape-2-1.png);
+    background-color:#F4F1EE ;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+    margin-bottom: 20px;
 
 .areaGrade {
     width: 100%;
-    height: 80vh;
+    height: 100%;
 
+    margin-bottom: 80px;
     .titleGrade {
         text-align: center;
         margin-top: 100px;
@@ -55,7 +59,7 @@
     position:relative;
     width: 40px;
     height: 40px;
-    background-color:#c01e1e;
+    background-color:#ffffff;
     border-radius: 50%;
     border: 1px solid gainsboro;
     display: flex;
@@ -70,7 +74,7 @@
     position:relative;
     width: 40px;
     height: 40px;
-    background-color:#ae1c1c;
+    background-color:#ffffff;
     border-radius: 50%;
     border: 1px solid gainsboro;
     display: flex;
@@ -80,4 +84,5 @@
     h6{
         font-size: 16px;
     }
+}
 }

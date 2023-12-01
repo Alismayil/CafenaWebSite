@@ -1,3 +1,4 @@
+
 .headerHeroArea {
   background-color: #fff;
   width: 100%;
@@ -9,6 +10,7 @@
   background-image: url(https://xpressrow.com/html/cafena/cafena/assets/images/shape/hero-shape-2-1.png);
   background-repeat: no-repeat;
   margin-bottom: 130px;
+  position: relative;
 
   h1 {
     width: 500px;
@@ -23,7 +25,46 @@
     
   }
 }
+// #Header{
+//   position: relative;
+//   z-index: 1;
+//   width: 100%;
+// }
 
+.playVideoOpening{
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.503);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  // overflow: hidden;
+  // visibility: hidden;
+  justify-content: center;
+  align-items: center;
+  z-index: 3  ;
+button{
+  position: absolute;
+  top: 0;
+  display: flex;
+  right: 0;
+  margin-top: 20px;
+  margin-right: 20px;
+  border:1px solid rgba(255, 255, 255, 0.6);
+  padding: 10px;
+  border-radius: 50%;
+  background-color: transparent;
+font-size: 25px;
+  color: rgba(255, 255, 255, 0.6);
+}
+}
+.playVideoOpening_active{
+  overflow: auto;
+  visibility: visible;
+
+}
 .heroAreaBtn {
   display: flex;
   justify-content: left;
@@ -32,11 +73,11 @@
   // Header buttom 1
   .sitebtn1 {
     border: 1px solid #9f9f9e;
-    width: 211px;
+    width: 200px;
     height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
     text-decoration: none;
     color: rgb(195, 22, 22);
     font-size: 13px;
@@ -78,11 +119,11 @@
   //   Header Buttom 2
   .sitebtn2 {
     border: 1px solid #c7a17a;
-    width: 211px;
+    width: 200px;
     height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
     text-decoration: none;
     color: white;
     font-size: 13px;
@@ -136,8 +177,8 @@
 }
 
 .playVideo {
-  height: 80px;
-  width: 80px;
+  height: 94px;
+  width: 94px;
   border-radius: 50%;
   border: 1px solid rgb(97, 96, 96);
   display: flex;
@@ -199,7 +240,7 @@
 
 @media screen and (max-width:1360px) {
   .headerHeroArea {
-    gap: 0%;
+    gap: 150px;
 p{
   text-align: center;
 }
@@ -216,10 +257,47 @@ p{
 }
 
 @media screen and (max-width:768px) {
+ 
+   
+
+    .headerHeroArea {
+      gap: 0;
+      .heroAreoImage {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .image {
+          height: 300px;
+          max-width: 600px;
+
+          img {
+            height: 300px;
+            max-width: 600px;
+           
+          }
+        }
+      }
+    }
+
+    .heroAreaBtn {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+}
+@media screen and (max-width:438px){
   #Header {
     height: 100%;
 
     .headerHeroArea {
+      .heroAreaContent{
+        .coffeText{
+          max-width: 300px;
+          margin-bottom: 50px;
+          margin-left: 100px;
+        }
+      }
       .heroAreoImage {
         flex-direction: column;
         justify-content: center;
