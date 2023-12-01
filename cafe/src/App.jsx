@@ -9,12 +9,13 @@ import Shop from "./components/Routes/Shoproute/index";
 import Home2 from "./components/Routes/Homeroute/home2";
 import Home1 from "./components/Routes/Homeroute/home1";
 import Blog from "./components/blog";
+import ReservationPage from './page/reservationPage/index'
 import Footer from "./layout/footer/index";
 
 function App() {
   return (
     <>
-      <Navbar>
+      {/* <Navbar>
         <Routes>
           <Route path="/" element={<Navbar />}>
             <Route path="Home1" element={<Home1 />} />
@@ -29,7 +30,10 @@ function App() {
         </Routes>
       </Navbar>
       <Blog />
-      <Footer />
+      <Footer /> */}
+      <ReservationPage>
+        
+      </ReservationPage>
     </>
   );
 }
