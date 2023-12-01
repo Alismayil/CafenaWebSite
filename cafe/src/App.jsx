@@ -4,17 +4,18 @@ import Customer from './components/customer'
 
 import Grade from './components/grade'
 import Header from './layout/header'
+import About from './page/AboutPage/about'
 
 function App() {
 
   return (
     <>
-    <Header/>
+    {/* <Header/>
     <BestCoffee/>
     <Customer/>
     <Grade/>
-    
-   
+     */}
+   <About></About>
    
     </>
   )

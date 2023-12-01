@@ -1,0 +1,286 @@
+// About page section 1 start
+#About {
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(https://xpressrow.com/html/cafena/cafena/assets/images/bg/breadcrumb-bg-1.jpeg);
+
+
+  .shape {
+    position: absolute;
+    width: 100%;
+    width: 100%;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .shape1 {
+    img {
+      width: 100%;
+    }
+
+    top: 0;
+    display: flex;
+    justify-content: start;
+  }
+
+  .shape2 {
+    img {
+      width: 100%;
+    }
+
+    bottom: 0;
+    display: flex;
+    justify-content: end;
+  }
+}
+
+.aboutContainer {
+  display: flex;
+
+  .aboutPageText {
+
+    text-align: center;
+
+    .aboutText {
+
+      h1 {
+        font-size: 70px;
+        color: aliceblue;
+      }
+    }
+
+    .HomeAboutText {
+      display: flex;
+      justify-content: center;
+
+      h6 {
+        font-size: 20px;
+        color: aliceblue;
+      }
+
+      .abouth6 {
+        color: #C7A17A;
+      }
+    }
+  }
+
+}
+
+// About page section 1 end
+#Cafena {
+  background-repeat: no-repeat;
+  background-color: #f8f9fa;
+  height: 100vh;
+  background-image: url(https://xpressrow.com/html/cafena/cafena/assets/images/shape/about-shape-2-1.png);
+
+}
+
+#aboutUs {
+  position: relative;
+  background-color: #f4f1ee;
+  z-index: 0;
+  width: 100%;
+
+  .container {
+    width: 100%;
+    display: flex;
+    gap: 80px;
+    padding-top: 120px;
+    padding-bottom: 130px;
+
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+
+    .rightImg {
+      position: absolute;
+      right: 0;
+      top: -60px;
+    }
+
+    .leftImg {
+      position: absolute;
+      left: 0;
+    }
+
+    .contentImgs {
+      background-color: transparent;
+      z-index: 2;
+      margin-left: 100px;
+
+      .imgContainer {
+        position: relative;
+
+        .bigImg {
+          img {
+            max-width: none;
+          }
+        }
+
+        .smallImg {
+          position: absolute;
+          bottom: 0;
+          left: -130px;
+        }
+      }
+    }
+
+    .textContent {
+      width: 530px;
+      padding-top: 45px;
+      z-index: 2;
+
+      .subTitle {
+        margin-bottom: 30px;
+
+        .textSubTitle {
+          background-color: var(--main-color);
+          letter-spacing: 2px;
+          color: white;
+          padding: 2px 13px;
+          font-size: 16px;
+          border-radius: 3px;
+          background-color: #C7A17A;
+
+        }
+      }
+
+      .mainTitle {
+        margin-bottom: 20px;
+
+        .title {
+          color: black;
+          text-transform: uppercase;
+          font-family: "Bebas Neue", sans-serif;
+          font-size: 55px;
+          line-height: 57px;
+        }
+      }
+
+      .description {
+        font-size: 20px;
+        color: var(--light-grey-color);
+
+        .initalDesc {
+          margin-bottom: 45px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  #aboutUs {
+
+    .container {
+
+      flex-wrap: wrap;
+
+      .contentImgs {
+        margin-left: 0;
+
+        .imgContainer {
+          .smallImg {
+            bottom: 0;
+            right: 0;
+            left: auto;
+            transform: translateX(50%);
+          }
+        }
+      }
+
+      .textContent {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #aboutUs {
+
+    .container {
+      padding-left: 0;
+      padding-right: 0;
+
+      .contentImgs {
+        flex-direction: column;
+        display: flex;
+
+        .imgContainer {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+
+          .bigImg {
+            margin: 0 30px;
+
+            img {
+              max-width: 100%;
+            }
+          }
+
+          .smallImg {
+            display: flex;
+            position: static;
+            margin-top: 40px;
+            margin-right: 50%;
+          }
+        }
+      }
+.textcontent-chek{
+  display: flex;
+  flex-direction: column;
+  .textContent {
+        padding: 0 25px;
+        max-width: 100%;
+      }
+  .checked {
+  display: flex;
+flex-direction: column;
+  
+  P {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+}
+}
+      
+    }
+  }
+
+}
+
+
+
+.checkedAll {
+  display: flex;
+margin-bottom: 20px;
+
+}
+
+.iconSpan {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.fa-check {
+  border: 1px solid black;
+  border-radius: 7px;
+  padding: 10px;
+
+  &:hover {
+    color: white;
+    background-color: black;
+    transition: 0.6s;
+  }
+}
