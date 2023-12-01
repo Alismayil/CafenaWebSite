@@ -11,15 +11,18 @@ function DetailPage({ modalState, detailId, handleOpenDetailPage }) {
     const [detailCount, setdetailCount] = useState(detailId || basket.find(x => x.id === detailId).count)
     const [basketItems, setBasketItems] = useState(localStorage.getItem("basket") ? JSON.parse(localStorage.getItem("basket")) : [])
     const BaseUrl = `http://localhost:3000/coffee/${detailId}`
+    console.log(BaseUrl);
+    console.log("id::::",detailId);
     console.log("detail",detail)
     async function datas() {
         const res = await axios.get(`${BaseUrl}`)
         setDetail(res.data)
+        console.log("gelen",res.data);
     }
 
     useEffect(() => {
         datas()
-    }, [])
+    }, [detailId])
 
     return (
         <div className='detailPage' style={modalState ? { display: "flex" } : { display: "none" }}>

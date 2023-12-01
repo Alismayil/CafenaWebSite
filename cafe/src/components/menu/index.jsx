@@ -15,12 +15,7 @@ import { WishlistContext } from '../../context/WishlistContext/wishlistContext';
 
 
 
-function PopularMenu({changeModalState,setDetailId}) {
-    
-
-    
-
-
+function PopularMenu({ changeModalState, setDetailId }) {
 
     // ------------card---------------
     const [card, setCard] = useState([])
@@ -29,38 +24,38 @@ function PopularMenu({changeModalState,setDetailId}) {
     const [changeBtnColor, setChangeBtnColor] = useState([])
     const [updateCatagory, setUpdateCatagory] = useState([])
 
-    const  { handleAddBasket, handleOpenSideBar} = useContext(BasketContext)
-    const { handleAddWishlist, heart,handleOpenWishlistBar}=useContext(WishlistContext)
+    const { handleAddBasket, handleOpenSideBar } = useContext(BasketContext)
+    const { handleAddWishlist, heart, handleOpenWishlistBar } = useContext(WishlistContext)
 
     const url = "http://localhost:3000/coffee"
 
     // --------useFetch------------
     function Callback(data) {
-    setCard(data)
+        setCard(data)
     }
 
-    UseFetch(url,Callback)
+    UseFetch(url, Callback)
 
     // ------------catagory---------------
-  function handleCatagory(e) {
-    setCatagory(e.target.value)
-  }
-    
-//  ---------ClickedBtnColor-----------
-function handleClickedCatagory(e) {
-    changeBtnColor.shift()
-    setChangeBtnColor([
-        ...changeBtnColor,
-        id
-    ])
-    updateCatagory(e.target.value)
+    function handleCatagory(e) {
+        setCatagory(e.target.value)
+    }
 
-}
-function isclicked(id) {
-    return changeBtnColor.indexOf(id) !== -1
-    
-}
-    
+    //  ---------ClickedBtnColor-----------
+    function handleClickedCatagory(e) {
+        changeBtnColor.shift()
+        setChangeBtnColor([
+            ...changeBtnColor,
+            id
+        ])
+        updateCatagory(e.target.value)
+
+    }
+    function isclicked(id) {
+        return changeBtnColor.indexOf(id) !== -1
+
+    }
+
 
 
     return (
@@ -101,43 +96,50 @@ function isclicked(id) {
                                     {/* <button onClick={(e)=>{handleCatagory(e)
                                                     changeBtnColor(e,1)
                                                 }}></button> */}
-                                                <button className={isclicked(1) ? "btnActive" : ""} 
-                                                    onClick={(e)=>{handleCatagory(e)
-                                                    handleClickedCatagory(e,1)
-                                                }} value='All'> ALL
-                                                </button>
-                                                <button className={isclicked(2) ? "btnActive" : ""} 
-                                                    onClick={(e)=>{handleCatagory(e)
-                                                    handleClickedCatagory(e,2)
-                                                }} value='1'> CHOCOLATE
-                                                </button >
-                                                <button className={isclicked(3) ? "btnActive" : ""} 
-                                                    onClick={(e)=>{handleCatagory(e)
-                                                    handleClickedCatagory(e,3)
-                                                }} value='2'> COFFEE
-                                                </button>
-                                                <button className={isclicked(4) ? "btnActive" : ""} 
-                                                    onClick={(e)=>{handleCatagory(e)
-                                                    handleClickedCatagory(e,4)
-                                                }} value='3'> SANDWICHES
-                                                </button>
-                                                <button className={isclicked(5) ? "btnActive" : ""} 
-                                                    onClick={(e)=>{handleCatagory(e)
-                                                    handleClickedCatagory(e,5)
-                                                }} value='4'> SWEETS
-                                                </button>
-                                                <button className={isclicked(6) ? "btnActive" : ""} 
-                                                    onClick={(e)=>{handleCatagory(e)
-                                                    handleClickedCatagory(e,6)
-                                                }} value='5'> BLACK TEA
-                                                </button>
-                                                <button className={isclicked(7) ? "btnActive" : ""} 
-                                                    onClick={(e)=>{handleCatagory(e)
-                                                    handleClickedCatagory(e,7)
-                                                }} value='6'> GREAN TEA
-                                                </button>                 
-                                                <button onClick={handleOpenSideBar}>basket</button>
-                                                <button onClick={handleOpenWishlistBar}>wishlist</button>
+                                    <button className={isclicked(1) ? "btnActive" : ""}
+                                        onClick={(e) => {
+                                            handleCatagory(e)
+                                            handleClickedCatagory(e, 1)
+                                        }} value='All'> ALL
+                                    </button>
+                                    <button className={isclicked(2) ? "btnActive" : ""}
+                                        onClick={(e) => {
+                                            handleCatagory(e)
+                                            handleClickedCatagory(e, 2)
+                                        }} value='1'> CHOCOLATE
+                                    </button >
+                                    <button className={isclicked(3) ? "btnActive" : ""}
+                                        onClick={(e) => {
+                                            handleCatagory(e)
+                                            handleClickedCatagory(e, 3)
+                                        }} value='2'> COFFEE
+                                    </button>
+                                    <button className={isclicked(4) ? "btnActive" : ""}
+                                        onClick={(e) => {
+                                            handleCatagory(e)
+                                            handleClickedCatagory(e, 4)
+                                        }} value='3'> SANDWICHES
+                                    </button>
+                                    <button className={isclicked(5) ? "btnActive" : ""}
+                                        onClick={(e) => {
+                                            handleCatagory(e)
+                                            handleClickedCatagory(e, 5)
+                                        }} value='4'> SWEETS
+                                    </button>
+                                    <button className={isclicked(6) ? "btnActive" : ""}
+                                        onClick={(e) => {
+                                            handleCatagory(e)
+                                            handleClickedCatagory(e, 6)
+                                        }} value='5'> BLACK TEA
+                                    </button>
+                                    <button className={isclicked(7) ? "btnActive" : ""}
+                                        onClick={(e) => {
+                                            handleCatagory(e)
+                                            handleClickedCatagory(e, 7)
+                                        }} value='6'> GREAN TEA
+                                    </button>
+                                    <button onClick={handleOpenSideBar}>basket</button>
+                                    <button onClick={handleOpenWishlistBar}>wishlist</button>
                                     {/* <button className={isclicked(1) ? "btnActive" : ""} onClick={(e)=>handleCatagory(e)} value='All'> ALL</button>
                                     <button className={isclicked(2) ? "btnActive" : ""} onClick={(e)=>handleCatagory(e)} value='1'> CHOCOLATE</button >
                                     <button className={isclicked(3) ? "btnActive" : ""} onClick={(e)=>handleCatagory(e)} value='2'> COFFEE</button>
@@ -151,7 +153,7 @@ function isclicked(id) {
                     </div>
                     <div className='specialMenuBoxDown'>
                         {
-                            card && card.filter((item)=>catagory==="All" || (Array.isArray(item.filter) &&  item.filter.includes(parseFloat(catagory)))).map((item) => (
+                            card && card.filter((item) => catagory === "All" || (Array.isArray(item.filter) && item.filter.includes(parseFloat(catagory)))).map((item) => (
                                 <>
                                     <div className='card'>
                                         <div className='cardImg'>
@@ -162,14 +164,14 @@ function isclicked(id) {
                                             <h4>{item.name}</h4>
                                             <p className='price'>PRICE - <p>${item.newPrice} / </p> <span> ${item.oldPrice}</span></p>
                                             <div className='btns'>
-                                                <button onClick={()=>handleAddBasket(item)}
+                                                <button onClick={() => handleAddBasket(item)}
                                                 ><PiBasket />
                                                 </button>
-                                                <button onClick={()=>handleAddWishlist(item)} >
-                                                <i className={`${heart.includes(item.id) ? "fa-solid" : "fa-regular"} fa-heart`}></i>
+                                                <button onClick={() => handleAddWishlist(item)} >
+                                                    <i className={`${heart.includes(item.id) ? "fa-solid" : "fa-regular"} fa-heart`}></i>
                                                 </button>
-                                                <button onClick={()=>{
-                                                    console.log("id",item.id)
+                                                <button onClick={() => {
+                                                    console.log("id", item.id)
                                                     changeModalState()
                                                     setDetailId(item.id)
                                                 }}><FaRegEye /></button>

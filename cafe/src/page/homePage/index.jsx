@@ -1,14 +1,13 @@
-import React, {  useState } from 'react'
-import PopularMenu from '../../components/menu'
-import DetailPage from '../detailPage'
-import BasketProvider from '../../context/BasketContext/basketContext'
-import WishlistProvider from '../../context/WishlistContext/wishlistContext'
+import React, { useState } from 'react'
 import BasketSidebar from '../../components/basket'
+import PopularMenu from '../../components/menu'
 import WishlistSideBAr from '../../components/wishlist'
+import DetailPage from '../detailPage'
+import Blog from '../../components/blog'
 
 function Homepage() {
   const [openDetailPage, setopenDetailPage] = useState(false)
-  const [detailId, setDetailId] = useState(1)
+  const [detailId, setDetailId] = useState(null)
 
 
   function handleOpenDetailPage(e) {
@@ -17,15 +16,13 @@ function Homepage() {
 
   return (
     <>
-      <BasketProvider>
-        <BasketSidebar/>
-        <WishlistProvider>
-        <WishlistSideBAr/>
-          
-        <PopularMenu changeModalState={handleOpenDetailPage} setDetailId={setDetailId} />
-        <DetailPage modalState={openDetailPage} detailId={detailId} handleOpenDetailPage={handleOpenDetailPage} />
-        </WishlistProvider>
-      </BasketProvider>
+      <BasketSidebar />
+      <WishlistSideBAr />
+      <PopularMenu changeModalState={handleOpenDetailPage} setDetailId={setDetailId} />
+      {detailId && <DetailPage modalState={openDetailPage} detailId={detailId} handleOpenDetailPage={handleOpenDetailPage} />}
+      <Blog/>
+
+
     </>
   )
 }

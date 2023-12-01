@@ -1,0 +1,34 @@
+.notMean{
+    height: 92px;
+    background-color: red;
+    width: 100%;
+}
+.shop{
+    background-color: aqua;
+    min-height: 100vh   ;
+    padding: 0px 300px;
+    .container{
+        background-color: red;
+        min-height: 100vh;
+        .upbox{
+            background-color: green;
+            height: 10vh;
+        }
+        .downbox{
+            background-color: orange;
+            height: 120vh;
+            display: flex;
+            .boxLeft{
+                background-color: purple;
+                width: 68%;
+                height: 100%    ;
+            }
+            .boxRight{
+                background-color: yellowgreen;
+                width: 32%;
+                height: 100%    ;
+            }
+        }
+    }
+    
+}
