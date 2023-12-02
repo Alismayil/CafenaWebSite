@@ -1,34 +1,320 @@
-.notMean{
+@mixin Myflex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.notMean {
     height: 92px;
     background-color: red;
     width: 100%;
 }
-.shop{
-    background-color: aqua;
-    min-height: 100vh   ;
-    padding: 0px 300px;
-    .container{
-        background-color: red;
+
+.shop {
+    min-height: 100vh;
+    padding: 0px 180px;
+
+    .container {
+        // background-color: red;
         min-height: 100vh;
-        .upbox{
-            background-color: green;
-            height: 10vh;
+
+        .upbox {
+            border: 1px solid gray;
+            height: 7vh;
+            display: flex;
+            border-radius: 8px;
+
+            .showingText {
+                width: 68%;
+                height: 100%;
+                @include Myflex;
+                justify-content: start;
+                padding: 0px 20px;
+
+                p {
+                    color: gray;
+                }
+
+            }
+
+            .shopFilter {
+                width: 32%;
+                height: 100%;
+                display: flex;
+                gap: 40px;
+                @include Myflex;
+                justify-content: end;
+
+                .shopMenuBox {
+                    @include Myflex;
+                    gap: 10px;
+                }
+
+                select {
+                    border: none;
+                    background-color: transparent;
+                    height: 80%;
+                    outline: none;
+
+                }
+
+            }
         }
-        .downbox{
-            background-color: orange;
+
+        .downbox {
             height: 120vh;
             display: flex;
-            .boxLeft{
-                background-color: purple;
-                width: 68%;
-                height: 100%    ;
+
+            .boxLeft {
+                width: 75%;
+                height: 97%;
+                position: relative;
+                display: grid;
+                grid-template-columns: auto auto auto;
+                padding: 60px 10px 70px 0px;
+
+                .shopCard {
+                    width: 230px;
+                    height: 330px;
+                    border: 1px solid gray;
+                    border-radius: 7px;
+                    position: relative;
+
+                    .shopCardHover{
+                    transition: 0.5s;
+                        opacity: 0;
+                    @include Myflex;
+                        gap: 10px;
+                        width: 100%;
+                        height: 50px;
+                        position: absolute;
+                        button{
+                            cursor: pointer;
+                    @include Myflex;
+                            background-color: transparent;
+                           width: 32px;
+                           height: 32px;
+                           border-radius: 4px;
+                           border: 1px solid gray;
+                           color: gray;
+                        }
+                    }
+                    .shopcardImgBox {
+                         border-radius: 7px;
+                        width: 100%;
+                        height: 210px;
+                        @include Myflex;
+                        padding: 35px 0px 0px 0px;
+
+                        .img1 {
+                            display: block;
+                        }
+
+                        .img2 {
+                            display: none;
+                        }
+
+                        img {
+                            max-width: 60%;
+                        }
+                    }
+
+                    .shopcardImgBox:hover {
+                        .img1 {
+                            display: none;
+                        }
+
+                        .img2 {
+                            display: block;
+                        }
+                    }
+
+                    .shopCardTextBox {
+                        margin-top: 10px;
+                        @include Myflex;
+                        flex-direction: column;
+                        gap: 10px;
+                        .shopCardName{
+                            color: gray;
+                            font-size: 15px;
+                        }
+                        .shopCardInform{
+                            font-size: 20px;
+                        }
+
+                        .shopPriceBox {
+                            display: flex;
+
+                            .shoopNewPrice {
+                                margin-left: 5px;
+                                color: #C7A17A;
+                            }
+
+                            .shoopOldPrice {
+                                margin-left: 5px;
+                                text-decoration: line-through;
+                                color: gray;
+                            }
+                        }
+                    }
+                }
+                .shopCard:hover{
+                    .shopCardHover{
+                        opacity: 1;
+                        transition: 0.5s;
+                    }
+                }
+
+                .paginationPage {
+                    position: absolute;
+                    width: 100%;
+                    height: 50px;
+                    display: flex;
+                    justify-content: center;
+                    bottom: 0;
+                    gap: 10px;
+                    button {
+                        width: 50px;
+                        border-radius: 7px;
+                        border: 1px solid gray;
+                        background-color: transparent;
+                        color: gray;
+                        font-size: 15px;
+                        transition: 0.4s;
+                        cursor: pointer;
+                    }
+                    button:hover{
+                        transition: 0.4s;
+                        background-color: #C7A17A;
+                        color: white;
+                    }
+                }
             }
-            .boxRight{
-                background-color: yellowgreen;
+
+            .boxRight {
                 width: 32%;
-                height: 100%    ;
+                height: 100%;
+                @include Myflex;
+                flex-direction: column;
+                gap: 20px;
+
+                .ShopSearchBox {
+                    border-radius: 7px;
+                    border: 1px solid gray;
+                    width: 90%;
+                    @include Myflex;
+                    flex-direction: column;
+                    height: 17%;
+
+                    .shopSeacrhText {
+                        height: 30%;
+                        width: 80%;
+
+                        p {
+                            font-size: 28px;
+                        }
+
+                    }
+
+                    .shopSearchBtn {
+                        @include Myflex;
+                        height: 50px;
+                        width: 80%;
+                        font-size: 25px;
+                        border-radius: 7px;
+                        border: 1px solid gray;
+                        color: gray;
+
+                        input {
+                            width: 80%;
+                            height: 60%;
+                            border: none;
+                            background-color: transparent;
+                        }
+
+                        input:focus {
+                            border: none;
+                            outline: none;
+                        }
+
+                        ::placeholder {
+                            padding: 0px 10px;
+                        }
+
+                        .serachIcon {
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .shopCategoriesBox {
+                    border-radius: 7px;
+                    border: 1px solid gray;
+                    width: 90%;
+                    height: 48%;
+                    @include Myflex;
+                    gap: 10px;
+                    flex-direction: column;
+
+                    .shopCategoryText {
+                        height: 50px;
+                        width: 80%;
+
+                        p {
+                            font-size: 28px;
+
+                        }
+                    }
+
+                    .shopCategoryButtonBox {
+                        transition: 0.3s;
+                        @include Myflex;
+                        height: 50px;
+                        width: 80%;
+                        font-size: 25px;
+                        border-radius: 7px;
+                        border: 1px solid gray;
+                        color: gray;
+                        padding: 0px 6px 0px 0px;
+
+                        span {
+                            font-size: 15px;
+                        }
+
+                        button {
+                            color: gray;
+                            height: 90%;
+                            width: 100%;
+                            border: none;
+                            display: flex;
+                            justify-content: start;
+                            border-radius: 7px;
+                            padding: 14px;
+                            background-color: transparent;
+
+                            p {
+                                cursor: pointer;
+                            }
+
+                            // background-color: transparent;
+                        }
+                    }
+
+                    .shopCategoryButtonBox:hover {
+                        border: 1px solid black;
+                        transition: 0.3s;
+                    }
+
+                }
+
+                .shopFilterBox {
+                    background-color: blue;
+                    width: 90%;
+                    height: 17%;
+                }
             }
         }
     }
-    
+
 }
