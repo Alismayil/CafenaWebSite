@@ -5,6 +5,7 @@ import { BasketContext } from '../../context/BasketContext/basketContext';
 import { WishlistContext } from '../../context/WishlistContext/wishlistContext';
 import UseFetch from '../../hook/UseFetch';
 import './menu.scss';
+import { SearchContext } from '../../context/SearchContext/searchContext';
 
 
 
@@ -23,6 +24,13 @@ function PopularMenu({ changeModalState, setDetailId }) {
     const { handleAddWishlist, heart, handleOpenWishlistBar } = useContext(WishlistContext)
 
     const url = "http://localhost:3000/coffee"
+
+    // ---------------seerahContext------------------
+
+  const{search, setSearch}=useContext(SearchContext)
+
+
+
 
     // --------useFetch------------
     function Callback(data) {
@@ -56,24 +64,7 @@ function PopularMenu({ changeModalState, setDetailId }) {
     return (
 
         <>
-            {/* <div className='popularMenu'>
-                <div className='popularMenuLeft'>
-                    <div className='img1'>
-                        <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/menu-shape-1.png" alt="" />
-                    </div>
-                    <div className='img2'>
-                        <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/menu-shape-2.png" alt="" />
-                    </div>
-                </div>
-                <div className='popularMenuRight'>
-                    <div className='img3'>
-                        <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/menu-shape-3.png" alt="" />
-                    </div>
-                    <div className='img4'>
-                        <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/menu-shape-4.png" alt="" />
-                    </div>
-                </div>
-            </div> */}
+            
             <div className='SpecialMenuBiggestBox'>
             <div className='img1'>
                         <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/menu-shape-1.png" alt="" />
@@ -159,7 +150,8 @@ function PopularMenu({ changeModalState, setDetailId }) {
                     </div>
                     <div className='specialMenuBoxDown'>
                         {
-                            card && card.filter((item) => catagory === "All" || (Array.isArray(item.filter) && item.filter.includes(parseFloat(catagory)))).map((item) => (
+                            card && card.filter((x)=>x.name.toLowerCase().includes(search.toLowerCase()))
+                            .filter((item) => catagory === "All" || (Array.isArray(item.filter) && item.filter.includes(parseFloat(catagory)))).map((item) => (
                                 <>
                                     <div className='card' key={item.id}>
                                         <div className='cardImg'>
@@ -190,86 +182,7 @@ function PopularMenu({ changeModalState, setDetailId }) {
                         }
 
                     </div>
-                    {/* <div className='basketBox'>
-                        <div className='CartItems'><p>The product in the basket - {basket.length}</p></div>
-                        {basket.length === 0 ? <div className='Emptybasket'> <TbBasketPlus /><p>Empty</p></div> :''}
-                        
-                        {
-                            basket && basket.map((item)=>(
-                            <div className='basketCard'>
-                               <div className='removeBtnBasket'> <button onClick={()=>handleRemove(item.id)}><TiDelete className='removeIcon' /></button></div>
-                                <div className='BasketBoxImg'>
-                                <img src={item.image} alt="" />
-                                </div>
-                               <div className='nameAndPriceBox'>
-                               <p>{item.name}</p>
-                               <div className='priceAndCounterBox'> 
-                                <p> ${item.newPrice}</p>
-                                <div className='CountBox'>
-                                <button onClick={()=>handleCountVal(true, item)}>+</button>
-                                <p>{item.count}</p>
-                                <button onClick={()=>handleCountVal(false, item)}>-</button>
-                                </div></div>
-                               </div>
-                                <div className='TotalAndRemovve'>
-                                <p><span>Total</span> <span>${item.total}</span></p>
-                             
-                                </div>
-                              
-
-                            
-                            </div>
-                            ))
-                        }
-                      <div className='SubtotalBox'>  
-                      <p> <span>SUB TOTAL:</span> <span> ${subtotal}</span></p>
-                        <div className='BasketsBtns'>
-                        <button onClick={()=>handleDeleteBasket()} className='DeleteBtnBasket'>
-                        <p>Delete</p>
-                        <div className='BasketBtnHover1'></div>
-                           
-                       
-                       </button>
-                        <button className='ViewCardBtn' >
-                        <p>View Card</p>
-                        <div className='BasketBtnHover2'></div>
-                        </button>  
-                        </div>
-                        </div>
-                    </div> */}
-                    {/* <div className='WishlistBox'>
-                    <div className='CartItems'><p>The product in the wishlist - {wishlist.length}</p></div>
-                    {wishlist.length === 0 ? <div className='Emptywishlist'><TbHeartPlus /><p>Empty</p></div> :''}
-                        <div className='WishlistMainBox'>
-                        {
-                            wishlist && wishlist.map((item)=>(
-                               <div className='wishlistCard'>
-                                <div className='wishlistImgBox'>
-                                <img src={item.image} alt="" />
-                                </div>
-                                <div className='WishlistTextBox'>
-                                <h5>{item.name}</h5>
-                                <p>Price: ${item.newPrice}</p>
-                                </div>
-                                <div className='wishlistBtns'>
-                                <button onClick={()=>handleRemoveWishlist(item.id)}><TbHeartX /></button>
-                                <button onClick={()=>handleAddBasket(item)}><PiBasket /></button>
-                                </div>
-                               </div>
-                            ))
-                        }
-                        </div>
-                        <div className='WishlistDeleteBox'>
-                                <button onClick={()=>handleClearWishlist()}>
-                                <p>Delete</p>
-                                <div className='WishlistBtnHover'></div>
-                                    
-                                    </button>  
-                        
-                        </div>
-              
-
-                    </div> */}
+                    
 
                 </div>
             </div>

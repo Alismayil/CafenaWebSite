@@ -1,6 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import Swal from 'sweetalert2';
 import "./reservation.scss";
 import Footer from '../../layout/footer';
 import Navbar from '../../layout/navbar';
@@ -23,7 +24,23 @@ function ReservationPage() {
       time: Yup.string().required('Select a time'),
       email: Yup.string().matches(/^\S+@\S+\.\S+$/, 'Invalid email address').email('Invalid email address').required('Enter your email'),
     }),
-   
+    onSubmit: async (values,{resetForm}) => {
+      try {
+       
+        await new Promise(resolve => setTimeout(resolve));
+
+       
+        Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: 'Your reservation has been submitted successfully.',
+        });
+        resetForm();
+      } catch (error) {
+       
+    
+      }
+    },
   });
 
   return (
@@ -33,79 +50,83 @@ function ReservationPage() {
         <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/hero-shape-2-1.png" alt="" className='form_bg_left' />
         <div className='form_container'>
           <h2>RESERVATION FORM</h2>
-          <form  >
-            <div className='form_row'>
+          <form onSubmit={formik.handleSubmit}>
+          <div className='form_row'>
              <div className='form_col'>
-             <input
-                type="text"
-                placeholder='Enter your name'
-                {...formik.getFieldProps('name')}
-              />
+                <input
+                  type="text"
+                  placeholder='Enter your name'
+                  {...formik.getFieldProps('name')}
+                />
               {formik.touched.name && formik.errors.name && (
-                <div className="error">{formik.errors.name}</div>
-              )}
-             </div>
-
-              <div className='form_col'>
-              <input
-                type="text"
-                placeholder='Enter your number'
-                {...formik.getFieldProps('number')}
-              />
-              {formik.touched.number && formik.errors.number && (
-                <div className="error">{formik.errors.number}</div>
-              )}
-              </div>
-<div className='form_col'>
-  
-<select
-                name="seats"
-                id="seats"
-                {...formik.getFieldProps('seats')}
-              >
-                <option value="">Seats*</option>
-                <option value="2">For 2 Persons</option>
-                <option value="5">For 5 Persons</option>
-                <option value="6">For 6 Persons</option>
-              </select>
-              {formik.touched.seats && formik.errors.seats && (
-                <div className="error">{formik.errors.seats}</div>
-              )}
-</div>
-
-              <div className='form_col'>
-              <input
-                type="date"
-                {...formik.getFieldProps('date')}
-              />
-              {formik.touched.date && formik.errors.date && (
-                <div className="error">{formik.errors.date}</div>
-              )}
+                  <div className="error">{formik.errors.name}</div>
+                )}
               </div>
 
-            <div className='form_col'>
-            <input
-                type="time"
-                {...formik.getFieldProps('time')}
-              />
-              {formik.touched.time && formik.errors.time && (
-                <div className="error">{formik.errors.time}</div>
-              )}
-            </div>
+              <div className='form_col'>
+                <input
+                  type="text"
+                  placeholder='Enter your number'
+                  {...formik.getFieldProps('number')}
+                />
+                {formik.touched.number && formik.errors.number && (
+                  <div className="error">{formik.errors.number}</div>
+                )}
+              </div>
 
-             <div className='form_col'>
-             <input
-                type="email"
-                placeholder='Enter your mail'
-                {...formik.getFieldProps('email')}
-              />
-              {formik.touched.email && formik.errors.email && (
-                <div className="error">{formik.errors.email}</div>
-              )}
-             </div>
+              <div className='form_col'>
+                <select
+                  name="seats"
+                  id="seats"
+                  {...formik.getFieldProps('seats')}
+                >
+                  <option value="">Seats*</option>
+                  <option value="2">For 2 Persons</option>
+                  <option value="5">For 5 Persons</option>
+                  <option value="6">For 6 Persons</option>
+                </select>
+                {formik.touched.seats && formik.errors.seats && (
+                  <div className="error">{formik.errors.seats}</div>
+                )}
+              </div>
+
+              <div className='form_col'>
+                <input
+                  type="date"
+                  {...formik.getFieldProps('date')}
+                />
+                {formik.touched.date && formik.errors.date && (
+                  <div className="error">{formik.errors.date}</div>
+                )}
+              </div>
+
+              <div className='form_col'>
+                <input
+                  type="time"
+                  {...formik.getFieldProps('time')}
+                />
+                {formik.touched.time && formik.errors.time && (
+                  <div className="error">{formik.errors.time}</div>
+                )}
+              </div>
+
+              <div className='form_col'>
+                <input
+                  type="email"
+                  placeholder='Enter your mail'
+                  {...formik.getFieldProps('email')}
+                />
+                {formik.touched.email && formik.errors.email && (
+                  <div className="error">{formik.errors.email}</div>
+                )}
+              </div>
             </div>
+           
+
             <div className='btn'>
-              <button type="submit">Submit your request</button>
+              <button type="submit" disabled={formik.isSubmitting}>
+                Submit your request
+              </button>
             </div>
           </form>
         </div>

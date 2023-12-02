@@ -8,9 +8,7 @@ import { Link } from 'react-router-dom';
 import BasketProvider, { BasketContext } from '../../context/BasketContext/basketContext';
 import { WishlistContext } from '../../context/WishlistContext/wishlistContext';
 import './navbar.scss';
-
-
-// ------------------------------------
+import { SearchContext } from '../../context/SearchContext/searchContext';
 
 
 
@@ -30,13 +28,13 @@ const Navbar = () => {
     setIsSecondNavOpen(!isSecondNavOpen);
   };
 
-  // const handleBasketClick = () => {
-  //   setBasketOpen(!basketOpen);
-  // };
+  const{handleSearch}=useContext(SearchContext)
 
-  // const handleWishlistClick=()=>{
-  //   setWishlistOpen(!wishlistOpen)
-  // }
+  
+// ---------------handleSearch---------------------
+
+
+
   const handleLinkClick = (to) => {
     setActiveLink(to);
   };
@@ -75,14 +73,14 @@ const Navbar = () => {
           <Link to='/about' className={`btn ${activeLink === '/about' ? 'active' : ''}`} onClick={() => handleLinkClick('/about')}><span></span>ABOUT</Link>
           <Link to='/menu' className={`btn ${activeLink === '/menu' ? 'active' : ''}`} onClick={() => handleLinkClick('/menu')}><span></span>MENU</Link>
           <Link to='/reservation' className={`btn ${activeLink === '/reservation' ? 'active' : ''}`} onClick={() => handleLinkClick('/reservation')}><span></span>RESERVATION</Link>
-          <Link to='/pages' className={`btn ${activeLink === '/pages' ? 'active' : ''}`} onClick={() => handleLinkClick('/pages')}><span></span>PAGES</Link>
+          <Link to='/faq' className={`btn ${activeLink === '/faq' ? 'active' : ''}`} onClick={() => handleLinkClick('/faq')}><span></span>FAQ</Link>
           <Link to='/shop' className={`btn ${activeLink === '/shop' ? 'active' : ''}`} onClick={() => handleLinkClick('/shop')}><span></span>SHOP</Link>
         </ul>
         <div className='icons'>
           <CiSearch className='search' style={searchIconStyle} onClick={handleIconClick} />
           <div className={`search_form ${searchFormClass}`}>
             <form action="">
-              <input type="text" placeholder='Search Keywords' />
+              <input type="text" placeholder='Search Keywords' onChange={(e)=>handleSearch(e.target)} />
               <button><CiSearch /></button>
             </form>
           </div>

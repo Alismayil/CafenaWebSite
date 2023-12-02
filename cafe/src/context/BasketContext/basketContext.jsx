@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import Swal from 'sweetalert2';
 
 export const BasketContext = createContext()
 
@@ -24,12 +25,16 @@ const BasketProvider = ({ children }) => {
             newBasket[elemnetIndex].count++
             newBasket[elemnetIndex].total = newBasket[elemnetIndex].count * newBasket[elemnetIndex].newPrice
             setBasket(newBasket)
-
+           
         }
         else {
             const total = x.newPrice
             setBasket([...basket, { ...x, count: 1, total: total }])
-
+                Swal.fire({
+                    title: "Added to basket",
+                    icon: "success"
+                    
+                });
         }
     }
     function handleRemove(id) {
@@ -84,6 +89,10 @@ const BasketProvider = ({ children }) => {
             
             const total = item.newPrice
             setBasket([...basket, { ...item, count: count, total:total }])
+            Swal.fire({
+                title: "Added to basket",
+                icon: "success"
+              });
         }
     }
 

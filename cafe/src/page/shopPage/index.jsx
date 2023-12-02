@@ -9,6 +9,7 @@ import BasketSidebar from '../../components/basket';
 import WishlistSideBAr from '../../components/wishlist';
 import { BasketContext } from '../../context/BasketContext/basketContext';
 import { WishlistContext } from '../../context/WishlistContext/wishlistContext';
+import { SearchContext } from '../../context/SearchContext/searchContext';
 
 
 
@@ -25,6 +26,8 @@ function ShopPage() {
 
   const {handleAddWishlist, heart}=useContext(WishlistContext)
   const { handleAddBasket } = useContext(BasketContext)
+
+  const{search, handleSearch}=useContext(SearchContext)
 
 // -----------------filterSort----------------------
 const filterSort=(shopCard.filter((item)=> sort === "All" || item.sortId === String(sort)))
@@ -82,7 +85,7 @@ function handleCategoryButtonClick(categoryFilter) {
         <div className="container">
           <div className="upbox">
             <div className="showingText">
-              <p>Showing 1–12 of 54 results</p>
+              <p>Showing 1- 6 of {shopCard.length} results</p>
             </div>
             <div className="shopFilter">
               <div className='shopMenuBox'>
@@ -99,7 +102,8 @@ function handleCategoryButtonClick(categoryFilter) {
           <div className="downbox">
             <div className="boxLeft">
               {
-                PageDatas && PageDatas.filter((item) => item.newPrice >= selectedPriceRange[0] && item.newPrice <= selectedPriceRange[1])
+                PageDatas && PageDatas.filter((x)=>x.inform.toLowerCase().includes(search.toLowerCase()))
+                .filter((item) => item.newPrice >= selectedPriceRange[0] && item.newPrice <= selectedPriceRange[1])
                 .filter((item)=> item.category === categoriSort || categoriSort === "All" )
                 .filter((item)=> sort === "All" || item.sortId === String(sort)).map((item) => (
                   <div className='shopCard' key={item.id}>
@@ -142,7 +146,7 @@ function handleCategoryButtonClick(categoryFilter) {
                   <p>Search Here</p>
                 </div>
                 <div className="shopSearchBtn">
-                  <input type="text" placeholder='Search Product' />
+                  <input type="text" placeholder='Search Product' onChange={(e)=>handleSearch(e.target)} />
                   <IoIosSearch className='serachIcon' />
                 </div>
               </div>
@@ -154,14 +158,14 @@ function handleCategoryButtonClick(categoryFilter) {
                   <button onClick={() => handleCategoryButtonClick('burger')} >
                     <p>Burger</p>
                   </button>
-                  <span>04</span>
+                  <span>02</span>
 
                 </div>
                 <div className="shopCategoryButtonBox">
                   <button onClick={() => handleCategoryButtonClick('pizza')} >
                     <p>2x Pizza</p>
                   </button>
-                  <span>06</span>
+                  <span>03</span>
                 </div>
                 <div className="shopCategoryButtonBox">
                   <button onClick={() => handleCategoryButtonClick('coffee')} >
@@ -174,20 +178,20 @@ function handleCategoryButtonClick(categoryFilter) {
                   <button onClick={() => handleCategoryButtonClick('chicken')} >
                     <p>Chicken</p>
                   </button>
-                  <span>10</span>
+                  <span>03</span>
                 </div>
                 <div className="shopCategoryButtonBox">
                   <button onClick={() => handleCategoryButtonClick('other')} >
                     <p>Other</p>
                   </button>
-                  <span>12</span>
+                  <span>05</span>
 
                 </div>
                 <div className="shopCategoryButtonBox">
                   <button onClick={() => handleCategoryButtonClick('All')} >
                     <p>All</p>
                   </button>
-                  <span>21</span>
+                  <span>{shopCard.length}</span>
 
                 </div>
               </div>
