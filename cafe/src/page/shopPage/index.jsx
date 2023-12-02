@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './shop.scss'
 import { IoIosSearch } from "react-icons/io";
 import UseFetch from '../../hook/UseFetch';
@@ -7,15 +7,28 @@ import { PiBasket } from "react-icons/pi";
 import { Slider } from 'antd';
 import BasketSidebar from '../../components/basket';
 import WishlistSideBAr from '../../components/wishlist';
+import { BasketContext } from '../../context/BasketContext/basketContext';
+import { WishlistContext } from '../../context/WishlistContext/wishlistContext';
 
 
 
 function ShopPage() {
   const [shopCard, setShopCard] = useState([])
+
   const [sort, setSort] = useState("All")
+  const [categoriSort, setCategoriSort] = useState('All')
+
+
   const [currentPage, setCurrentPage] = useState(1);
   const [pagePerData] = useState(6);
 
+
+  const {handleAddWishlist, heart}=useContext(WishlistContext)
+  const { handleAddBasket } = useContext(BasketContext)
+
+// -----------------filterSort----------------------
+const filterSort=(shopCard.filter((item)=> sort === "All" || item.sortId === String(sort)))
+const categoryFilter=(shopCard.filter((item)=> item.category === categoriSort || categoriSort === "All" ))
 
   const url = "http://localhost:3000/product"
 
@@ -27,8 +40,8 @@ function ShopPage() {
 
 
   // ---------------range-----------------
-  const [priceRange, setPriceRange] = useState([0, 10000]);
-  const [selectedPriceRange, setSelectedPriceRange] = useState([0, 10000]);
+  const [priceRange, setPriceRange] = useState([0, 1000]);
+  const [selectedPriceRange, setSelectedPriceRange] = useState([0, 1000]);
   const handlePriceChange = (value) => {
     setPriceRange(value);
     setSelectedPriceRange(value);
@@ -40,22 +53,26 @@ function handleSortSelect(e) {
   setSort(e.target.value)
 }
 
+function handleCategoryButtonClick(categoryFilter) {
+  setCategoriSort(categoryFilter);
+}
+
 
 
   // -----------------pagination--------------------
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(shopCard.length / pagePerData); i++) {
+  for (let i = 1; i <= Math.ceil(categoryFilter.length / pagePerData); i++) {
     pageNumbers.push(i);
   }
-
+  
   const lastElementIndex = currentPage * pagePerData;
   const firstElementIndex = lastElementIndex - pagePerData;
-
-  const PageDatas = React.useMemo(() => shopCard.slice(firstElementIndex, lastElementIndex), [
-    shopCard,
+  
+  const PageDatas = React.useMemo(() => categoryFilter.slice(firstElementIndex, lastElementIndex), [
     currentPage,
+    categoryFilter  
   ]);
-
+  
   return (
     <>
     <BasketSidebar />
@@ -69,12 +86,12 @@ function handleSortSelect(e) {
             </div>
             <div className="shopFilter">
               <div className='shopMenuBox'>
-                <a style={{ color: "black" }} class="nav-link active" id="shop-tab-1-tab" data-bs-toggle="tab" href="#shop-tab-1" role="tab" aria-controls="shop-tab-1" aria-selected="true"><i class="fas fa-th"></i></a>
-                <a style={{ color: "black" }} class="nav-link" id="shop-tab-2-tab" data-bs-toggle="tab" href="#shop-tab-2" role="tab" aria-controls="shop-tab-2" aria-selected="false"><i class="fas fa-list-ul"></i></a>
+                <a style={{ color: "black" }} className="nav-link active" id="shop-tab-1-tab" data-bs-toggle="tab" href="#shop-tab-1" role="tab" aria-controls="shop-tab-1" aria-selected="true"><i className="fas fa-th"></i></a>
+                <a style={{ color: "black" }} className="nav-link" id="shop-tab-2-tab" data-bs-toggle="tab" href="#shop-tab-2" role="tab" aria-controls="shop-tab-2" aria-selected="false"><i className="fas fa-list-ul"></i></a>
               </div>
               <select value={sort} onChange={handleSortSelect}>
-                <option value="1">Short by New</option>
-                <option value="2">Short by Top</option>
+                <option value="New">Short by New</option>
+                <option value="Top">Short by Top</option>
                 <option value="All">All</option>
               </select>
             </div>
@@ -83,16 +100,19 @@ function handleSortSelect(e) {
             <div className="boxLeft">
               {
                 PageDatas && PageDatas.filter((item) => item.newPrice >= selectedPriceRange[0] && item.newPrice <= selectedPriceRange[1])
-                .filter((item)=> sort === "All" || item.sortId === parseFloat(sort)).map((item) => (
+                .filter((item)=> item.category === categoriSort || categoriSort === "All" )
+                .filter((item)=> sort === "All" || item.sortId === String(sort)).map((item) => (
                   <div className='shopCard' key={item.id}>
                     <div className='shopCardHover'>
-                      <button> <PiBasket /></button>
-                      <button><i class="fa-regular fa-heart"></i></button>
+                      <button onClick={()=>handleAddBasket(item)}> <PiBasket /></button>
+                      <button onClick={()=>handleAddWishlist(item)}>
+                      <i className={`${heart.includes(item.id) ? "fa-solid" : "fa-regular"} fa-heart`}></i>
+                        </button>
                       <button><FaRegEye /></button>
                     </div>
                     <div className='shopcardImgBox'>
-                      <img src={item.image} alt="" className='img1' />
-                      <img src={item.img} alt="" className='img2' />
+                      <img src={item.img} alt="" className='img1' />
+                      <img src={item.image} alt="" className='img2' />
                     </div>
                     <div className="shopCardTextBox">
                       <p className='shopCardName'>{item.name}</p>
@@ -130,37 +150,44 @@ function handleSortSelect(e) {
                 <div className="shopCategoryText">
                   <p>Categories</p>
                 </div>
-                <div className="shopCategoryButtonBox">
-                  <button>
+                <div className="shopCategoryButtonBox" >
+                  <button onClick={() => handleCategoryButtonClick('burger')} >
                     <p>Burger</p>
                   </button>
                   <span>04</span>
 
                 </div>
                 <div className="shopCategoryButtonBox">
-                  <button>
+                  <button onClick={() => handleCategoryButtonClick('pizza')} >
                     <p>2x Pizza</p>
                   </button>
                   <span>06</span>
                 </div>
                 <div className="shopCategoryButtonBox">
-                  <button>
-                    <p>Cold Drinks</p>
+                  <button onClick={() => handleCategoryButtonClick('coffee')} >
+                    <p>Coffe</p>
                   </button>
                   <span>08</span>
 
                 </div>
                 <div className="shopCategoryButtonBox">
-                  <button>
+                  <button onClick={() => handleCategoryButtonClick('chicken')} >
                     <p>Chicken</p>
                   </button>
                   <span>10</span>
                 </div>
                 <div className="shopCategoryButtonBox">
-                  <button>
-                    <p>Stuck Dish</p>
+                  <button onClick={() => handleCategoryButtonClick('other')} >
+                    <p>Other</p>
                   </button>
                   <span>12</span>
+
+                </div>
+                <div className="shopCategoryButtonBox">
+                  <button onClick={() => handleCategoryButtonClick('All')} >
+                    <p>All</p>
+                  </button>
+                  <span>21</span>
 
                 </div>
               </div>
@@ -171,10 +198,10 @@ function handleSortSelect(e) {
                 <div className='shopPriceInput'>
                 <Slider
                   range={{}}
-                  defaultValue={[20, 10000]}
+                  defaultValue={[20, 1000]}
                   onChange={handlePriceChange}
                   min={0.00}
-                  max={10000}
+                  max={1000}
                   railStyle={{ backgroundColor: '#80808070', height: '10px' , marginTop:"-6px"}}
                   trackStyle={[{ backgroundColor: '#C7A17A' , height: '10px', marginTop:"-6px" }]}
                 />

@@ -45,7 +45,7 @@ const Footer = () => {
                 <a href=""><FaTwitter /></a>
                 <a href=""><BiLogoFacebook /></a>
                 <a href=""><FaYoutube /></a>
-                <a href=""><FaGooglePlusG /></a>
+                <a href=""><FaGooglePlusG /></a>    
                 <a href=""><FaInstagram/></a>
                 </div>
             </div>

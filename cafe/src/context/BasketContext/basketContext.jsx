@@ -17,6 +17,7 @@ const BasketProvider = ({ children }) => {
 
     
     function handleAddBasket(x) {
+        console.log('salam ehmed',x);
         const elemnetIndex = basket.findIndex(item => item.id === x.id)
         if (elemnetIndex !== -1) {
             const newBasket = [...basket]

@@ -19,7 +19,7 @@ function PopularMenu({ changeModalState, setDetailId }) {
     const [changeBtnColor, setChangeBtnColor] = useState([])
     const [updateCatagory, setUpdateCatagory] = useState([])
 
-    const { handleAddBasket, handleOpenSideBar } = useContext(BasketContext)
+    const { handleAddBasket } = useContext(BasketContext)
     const { handleAddWishlist, heart, handleOpenWishlistBar } = useContext(WishlistContext)
 
     const url = "http://localhost:3000/coffee"
@@ -161,7 +161,7 @@ function PopularMenu({ changeModalState, setDetailId }) {
                         {
                             card && card.filter((item) => catagory === "All" || (Array.isArray(item.filter) && item.filter.includes(parseFloat(catagory)))).map((item) => (
                                 <>
-                                    <div className='card'>
+                                    <div className='card' key={item.id}>
                                         <div className='cardImg'>
                                             <img src={item.image} alt="" />
 
