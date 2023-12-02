@@ -7,6 +7,7 @@ import Blog from '../../components/blog'
 import Grade from '../../components/grade'
 import BestCoffee from '../../components/bestCoffe'
 import Header from '../../layout/header'
+import Customer from '../../components/customer'
 
 function Homepage() {
   const [openDetailPage, setopenDetailPage] = useState(false)
@@ -24,6 +25,7 @@ function Homepage() {
       <Header/>
       <BestCoffee/>
       <PopularMenu changeModalState={handleOpenDetailPage} setDetailId={setDetailId} />
+      <Customer/>
       <Grade/>
       {detailId && <DetailPage modalState={openDetailPage} detailId={detailId} handleOpenDetailPage={handleOpenDetailPage} />}
       <Blog/>
