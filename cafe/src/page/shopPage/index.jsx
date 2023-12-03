@@ -82,9 +82,32 @@ function handleCategoryButtonClick(categoryFilter) {
     <>
     <BasketSidebar />
       <WishlistSideBAr />
+
       <div className='notMean'></div>
+            <section id='About'>
+                <div className='shape shape1'>
+                    <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/breadcrumb-shape-1.png" alt="" />
+                </div>
+                <div className='aboutPage'>
+                    <div className='aboutContainer'>
+
+                        <div className='aboutPageText'>
+                            <div className='aboutText'>
+                                <h1> CAFENA PRODUCT</h1>
+                            </div>
+                            <div className='HomeAboutText'>
+                                <h6>HOME / </h6>
+                                <h6 className='abouth6' style={{marginLeft:"5px"}}> PRODUCT</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='shape shape2'>
+                    <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/breadcrumb-shape-2.png" alt="" />
+                </div>
+            </section>
       <div className='shop'>
-        <div className="container">
+        <div className="container" style={{marginTop:"100px"}}>
           <div className="upbox">
             <div className="showingText">
               <p>Showing 1- 6 of {shopCard.length} results</p>

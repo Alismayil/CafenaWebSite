@@ -8,8 +8,8 @@ import { WishlistContext } from '../../context/WishlistContext/wishlistContext';
 function DetailPage({ modalState, detailId, handleOpenDetailPage }) {
 
     const [detail, setDetail] = useState([])
-    const {   basket, handleModalAdd } = useContext(BasketContext)
-    const { handleAddModalWishlist, heart}=useContext(WishlistContext)
+    const {basket, handleModalAdd } = useContext(BasketContext)
+    const {handleAddModalWishlist, heart}=useContext(WishlistContext)
     const [detailCount, setdetailCount] = useState(detailId || basket.find(x => x.id === detailId).count)
     const [basketItems, setBasketItems] = useState(localStorage.getItem("basket") ? JSON.parse(localStorage.getItem("basket")) : [])
     const BaseUrl = `http://localhost:3000/coffee/${detailId}`

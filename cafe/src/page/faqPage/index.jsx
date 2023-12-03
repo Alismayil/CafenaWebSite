@@ -3,6 +3,8 @@ import './faq.scss'
 import { FaArrowDownLong } from "react-icons/fa6";
 import Navbar from '../../layout/navbar';
 import Footer from '../../layout/footer';
+import BasketSidebar from '../../components/basket';
+import WishlistSideBAr from '../../components/wishlist';
 
 const FAQ = () => {
   const [activeAccordion, setActiveAccordion] = useState(null);
@@ -38,7 +40,32 @@ const FAQ = () => {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
+      <BasketSidebar />
+      <WishlistSideBAr />
+      <div className='norMeanAbout'></div>
+            <section id='About'>
+                <div className='shape shape1'>
+                    <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/breadcrumb-shape-1.png" alt="" />
+                </div>
+                <div className='aboutPage'>
+                    <div className='aboutContainer'>
+
+                        <div className='aboutPageText'>
+                            <div className='aboutText'>
+                                <h1>ASKING QUESTION</h1>
+                            </div>
+                            <div className='HomeAboutText'>
+                                <h6>HOME / </h6>
+                                <h6 className='abouth6' style={{marginLeft:"5px"}}> FAQ</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='shape shape2'>
+                    <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/breadcrumb-shape-2.png" alt="" />
+                </div>
+            </section>
       <section className='FAQ_area'>
         <div className='FAQ_wrapper'>
           <div className='FAQ_container'>

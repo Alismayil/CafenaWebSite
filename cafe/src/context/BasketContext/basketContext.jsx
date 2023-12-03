@@ -96,6 +96,27 @@ const BasketProvider = ({ children }) => {
         }
     }
 
+    function handleShopAddBasket(item, count) {
+        const elemnetIndex = basket.findIndex(x => x.id === item.id)
+       
+        if (elemnetIndex !== -1) {
+           
+            const newBasket = [...basket]
+            newBasket[elemnetIndex].count = count
+            newBasket[elemnetIndex].total = newBasket[elemnetIndex].count * newBasket[elemnetIndex].newPrice
+            setBasket(newBasket)
+        
+        }
+        else {
+            
+            const total = item.newPrice
+            setBasket([...basket, { ...item, count: count, total:total }])
+            Swal.fire({
+                title: "Added to basket",
+                icon: "success"
+              });
+        }
+    }
 
     const data = {
         handleAddBasket,
@@ -108,7 +129,8 @@ const BasketProvider = ({ children }) => {
         handleModalAdd,
         handleOpenSideBar,
         setOpenBasketSide,
-        openBasketSide
+        openBasketSide,
+        handleShopAddBasket
         
 
     }

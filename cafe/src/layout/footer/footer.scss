@@ -8,9 +8,8 @@ footer {
     position: relative;
 
     .footer_container {
-        padding-top: 125px;
-        padding-left: 150px;
-        padding-right: 150px;
+        padding: 125px 40px 0px ;
+
         width: 65%;
 
         .footer_top {
@@ -237,4 +236,13 @@ footer {
             }
         }
     }
+}
+@media screen and (max-width:1300px) {
+footer{
+    .footer_container{
+        padding: 0;
+    }
+}
+
+
 }

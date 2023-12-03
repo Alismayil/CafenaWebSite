@@ -92,7 +92,7 @@ const Navbar = () => {
             </Link>
           </div>
           <Link to='/about' className={`btn ${activeLink === '/about' ? 'active' : ''}`} onClick={() => handleLinkClick('/about')}><span></span>ABOUT</Link>
-          <Link to='/menu' className={`btn ${activeLink === '/menu' ? 'active' : ''}`} onClick={() => handleLinkClick('/menu')}><span></span>MENU</Link>
+          {/* <Link to='/menu' className={`btn ${activeLink === '/menu' ? 'active' : ''}`} onClick={() => handleLinkClick('/menu')}><span></span>MENU</Link> */}
           <Link to='/reservation' className={`btn ${activeLink === '/reservation' ? 'active' : ''}`} onClick={() => handleLinkClick('/reservation')}><span></span>RESERVATION</Link>
           <Link to='/faq' className={`btn ${activeLink === '/faq' ? 'active' : ''}`} onClick={() => handleLinkClick('/faq')}><span></span>FAQ</Link>
           <Link to='/shop' className={`btn ${activeLink === '/shop' ? 'active' : ''}`} onClick={() => handleLinkClick('/shop')}><span></span>SHOP</Link>
@@ -154,12 +154,12 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <ul className={`second_nav_link ${isMenuOpen ? 'menu_active' : ''}`}>
-            <li>HOME</li>
-            <li>ABOUT</li>
-            <li>RESERVATION</li>
-            <li>FAQ</li>
-            <li>SHOP</li>
+          <ul className={`second_nav_link ${isMenuOpen ? 'menu_active' : ''}`} style={{display:"flex", flexDirection:'column', gap:"30px", }}>
+            <Link to={"/"} style={{textDecoration:"none" , color:"black"}}>HOME</Link>
+            <Link to={"/about"}  style={{textDecoration:"none", color:"black"}}>ABOUT</Link>
+            <Link to={"/reservation"}  style={{textDecoration:"none",color:"black"}}>RESERVATION</Link>
+            <Link to={"/faq"}  style={{textDecoration:"none",color:"black"}}>FAQ</Link>
+            <Link to={"/shop"}  style={{textDecoration:"none",color:"black"}}>SHOP</Link>
           </ul>
         </div>
       </div>

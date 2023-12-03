@@ -1,3 +1,4 @@
+
 import React from 'react'
 import './about.scss'
 import { LuPlus } from "react-icons/lu";
@@ -5,11 +6,16 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaTwitter } from "react-icons/fa";
 import { FaPinterestP } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
+import BasketSidebar from '../../components/basket';
+import WishlistSideBAr from '../../components/wishlist';
 
 const About = () => {
     return (
         //   About page section 1 start
         <>
+         <BasketSidebar />
+      <WishlistSideBAr />
+        <div className='norMeanAbout'></div>
             <section id='About'>
                 <div className='shape shape1'>
                     <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/breadcrumb-shape-1.png" alt="" />
@@ -23,7 +29,7 @@ const About = () => {
                             </div>
                             <div className='HomeAboutText'>
                                 <h6>HOME / </h6>
-                                <h6 className='abouth6'> ABOUT</h6>
+                                <h6 className='abouth6' style={{marginLeft:"5px"}}> ABOUT</h6>
                             </div>
                         </div>
                     </div>

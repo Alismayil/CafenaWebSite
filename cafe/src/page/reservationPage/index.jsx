@@ -5,6 +5,8 @@ import Swal from 'sweetalert2';
 import "./reservation.scss";
 import Footer from '../../layout/footer';
 import Navbar from '../../layout/navbar';
+import BasketSidebar from '../../components/basket';
+import WishlistSideBAr from '../../components/wishlist';
 
 function ReservationPage() {
   const formik = useFormik({
@@ -45,7 +47,32 @@ function ReservationPage() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
+      <BasketSidebar />
+      <WishlistSideBAr />
+      <div className='notMeanReservation'></div>
+      <section id='About'>
+                <div className='shape shape1'>
+                    <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/breadcrumb-shape-1.png" alt="" />
+                </div>
+                <div className='aboutPage'>
+                    <div className='aboutContainer'>
+
+                        <div className='aboutPageText'>
+                            <div className='aboutText'>
+                                <h1>Reservation</h1>  
+                            </div>
+                            <div className='HomeAboutText'>
+                                <h6>HOME / </h6>
+                                <h6 className='abouth6' style={{marginLeft:"5px"}}> Reservation</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className='shape shape2'>
+                    <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/breadcrumb-shape-2.png" alt="" />
+                </div>
+            </section>
       <section className='form_sec'>
         <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/hero-shape-2-1.png" alt="" className='form_bg_left' />
         <div className='form_container'>

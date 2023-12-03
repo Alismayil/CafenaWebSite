@@ -1,5 +1,3 @@
-
-
 // export default Header;
 import React, { useState } from "react";
 import "./header.scss";
@@ -16,8 +14,8 @@ const Header = () => {
   return (
     <>
       <div>
+        <div className="notMeanHeader"></div>
         <section id="Header">
-          <div className="notMeanHeader"></div>
           <div className="headerHeroArea">
             <div className="heroAreaContent">
               <h1>
@@ -54,6 +52,51 @@ const Header = () => {
               </div>
             </div>
           </div>
+          
+          <div className="container">
+                <div className="yearsbox">
+                    <div className="yearstop">
+                        <div className='topyears'>
+                            <span>1992</span>
+                            <div className='line'></div>
+                        </div>
+                        <div className="yearstext">
+                            <h2>How we Started</h2><br />
+                            <p>Curabitur semper erat a lacusey sedn consequat, sit amet quamey.</p>
+                        </div>
+                    </div>
+                    <div className="yearstop">
+                        <div className='topyears'>
+                            <span>2002</span>
+                            <div className='line'></div>
+                        </div>
+                        <div className="yearstext">
+                            <h2>Coffee Beans</h2><br />
+                            <p>Curabitur semper erat a lacusey sedn consequat, sit amet quamey.</p>
+                        </div>
+                    </div>
+                    <div className="yearstop">
+                        <div className='topyears'>
+                            <span>2014</span>
+                            <div className='line'></div>
+                        </div>
+                        <div className="yearstext">
+                            <h2>Family Work</h2><br />
+                            <p>Curabitur semper erat a lacusey sedn consequat, sit amet quamey.</p>
+                        </div>
+                    </div>
+                    <div className="yearstop">
+                        <div className='topyears'>
+                            <span>2019</span>
+                            <div className='line'></div>
+                        </div>
+                        <div className="yearstext">
+                            <h2>Bangladeshy Grades</h2><br />
+                            <p>Curabitur semper erat a lacusey sedn consequat, sit amet quamey.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
       </div>
       {isvideoopen && (

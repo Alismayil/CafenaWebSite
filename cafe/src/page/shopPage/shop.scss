@@ -49,11 +49,13 @@
                 gap: 40px;
                 @include Myflex;
                 justify-content: end;
+                padding: 0px 10px;
 
                 .shopMenuBox {
                     @include Myflex;
                     gap: 10px;
-                    button{
+
+                    button {
                         background-color: transparent;
                         border: none;
                         font-size: 16px;
@@ -67,6 +69,7 @@
                     height: 80%;
                     outline: none;
 
+
                 }
 
             }
@@ -79,7 +82,7 @@
             display: flex;
 
             .boxLeft {
-            
+
                 width: 68%;
                 height: 100%;
                 display: flex;
@@ -473,6 +476,104 @@
     }
 
 }
+
+@media screen and (min-width: 1800px) {
+    .shop {
+        padding: 0px 170px;
+
+        .container {
+            .upbox{
+                width: 90.5%;
+                margin-left: -100px;
+            }
+            .downbox {
+                .boxLeft {
+                    .shopCard {
+
+                        width: 300px;
+                        height: 400px;
+                    }
+                    .shopChangeCard {
+                        height: 158px;
+
+                        img {
+                            width: 30%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 1253px) {
+    .shop {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 645px) {
+    .shop {
+        .container {
+            .downbox {
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                .boxLeft {
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+
+                    .shopChangeCard {
+                        .shopcardImgBox {
+                            img {
+                                max-width: 107%;
+                            }
+                        }
+                    }
+
+                    .paginationPage {
+                        height: 300px;
+                        flex-direction: column;
+                        top: 20%;
+                        left: 10px;
+
+                        button {
+                            width: 30px;
+                            height: 30px;
+                        }
+
+                    }
+                }
+
+                .boxRight {
+                    .ShopSearchBox {
+                        margin-top: 50px;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+
+    .shop {
+        .container {
+            .upbox {
+                p {
+                    font-size: 10px;
+                    max-width: 100px;
+                }
+            }
+        }
+    }
+
+}
+
 
 :where(.css-dev-only-do-not-override-2q8sxy).ant-slider .ant-slider-handle::after {
     content: "";
