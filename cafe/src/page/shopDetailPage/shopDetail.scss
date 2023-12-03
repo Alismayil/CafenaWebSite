@@ -1,0 +1,56 @@
+@mixin Myflex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.notMeanShop{
+    height: 92px;
+    background-color: green;
+}
+
+
+.shopDetailPage{
+
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    .shopDetailImgs{
+        background-color: green;
+        @include Myflex;
+        width: 55%;
+        height: 100%;
+        .shopDetailBigImg{
+            background-color: red;
+            width: 50%;
+            height: 70%;
+            @include Myflex;
+            img{
+                min-width: 50%;
+                
+            }
+        }
+        .shopDetailsSmallImgsBox{
+            background-color: purple;
+            width: 20%;
+            height: 70%;
+        @include Myflex;
+        gap: 15px;
+            flex-direction: column;
+            .shopDetailSmallImg{
+            @include Myflex;
+                background-color: aqua;
+                width: 120px;
+                height: 117px;
+                cursor: pointer;
+                img{
+                    max-width: 50%;
+                }
+            }
+        }
+    }
+    .shopDetailTextBox{
+        background-color: yellow;
+        width: 45%;
+        height: 100%;
+    }
+}

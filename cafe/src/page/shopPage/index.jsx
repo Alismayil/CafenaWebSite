@@ -10,7 +10,7 @@ import WishlistSideBAr from '../../components/wishlist';
 import { BasketContext } from '../../context/BasketContext/basketContext';
 import { WishlistContext } from '../../context/WishlistContext/wishlistContext';
 import { SearchContext } from '../../context/SearchContext/searchContext';
-
+import { Link } from "react-router-dom";
 
 
 function ShopPage() {
@@ -28,6 +28,8 @@ function ShopPage() {
   const { handleAddBasket } = useContext(BasketContext)
 
   const{search, handleSearch}=useContext(SearchContext)
+
+  const [changeMenu, setChangeMenu] = useState(false)
 
 // -----------------filterSort----------------------
 const filterSort=(shopCard.filter((item)=> sort === "All" || item.sortId === String(sort)))
@@ -89,8 +91,8 @@ function handleCategoryButtonClick(categoryFilter) {
             </div>
             <div className="shopFilter">
               <div className='shopMenuBox'>
-                <a style={{ color: "black" }} className="nav-link active" id="shop-tab-1-tab" data-bs-toggle="tab" href="#shop-tab-1" role="tab" aria-controls="shop-tab-1" aria-selected="true"><i className="fas fa-th"></i></a>
-                <a style={{ color: "black" }} className="nav-link" id="shop-tab-2-tab" data-bs-toggle="tab" href="#shop-tab-2" role="tab" aria-controls="shop-tab-2" aria-selected="false"><i className="fas fa-list-ul"></i></a>
+                <button onClick={()=>setChangeMenu(false)} style={{ color: "black" }} className="nav-link active" id="shop-tab-1-tab" data-bs-toggle="tab" href="#shop-tab-1" role="tab" aria-controls="shop-tab-1" aria-selected="true"><i className="fas fa-th"></i></button>
+                <button onClick={()=>setChangeMenu(true)}   style={{ color: "black" }} className="nav-link" id="shop-tab-2-tab" data-bs-toggle="tab" href="#shop-tab-2" role="tab" aria-controls="shop-tab-2" aria-selected="false"><i className="fas fa-list-ul"></i></button>
               </div>
               <select value={sort} onChange={handleSortSelect}>
                 <option value="New">Short by New</option>
@@ -101,18 +103,20 @@ function handleCategoryButtonClick(categoryFilter) {
           </div>
           <div className="downbox">
             <div className="boxLeft">
+              
               {
                 PageDatas && PageDatas.filter((x)=>x.inform.toLowerCase().includes(search.toLowerCase()))
                 .filter((item) => item.newPrice >= selectedPriceRange[0] && item.newPrice <= selectedPriceRange[1])
                 .filter((item)=> item.category === categoriSort || categoriSort === "All" )
                 .filter((item)=> sort === "All" || item.sortId === String(sort)).map((item) => (
-                  <div className='shopCard' key={item.id}>
+                 <>
+                  <div className={`${changeMenu ? "shopChangeCard" : "shopCard"}`} key={item.id}>
                     <div className='shopCardHover'>
                       <button onClick={()=>handleAddBasket(item)}> <PiBasket /></button>
                       <button onClick={()=>handleAddWishlist(item)}>
                       <i className={`${heart.includes(item.id) ? "fa-solid" : "fa-regular"} fa-heart`}></i>
                         </button>
-                      <button><FaRegEye /></button>
+                      <Link to={`/details/${item.id}`}><button><FaRegEye /></button></Link>
                     </div>
                     <div className='shopcardImgBox'>
                       <img src={item.img} alt="" className='img1' />
@@ -129,6 +133,7 @@ function handleCategoryButtonClick(categoryFilter) {
                     </div>
 
                   </div>
+                 </>
                 ))
               }
               <div className='paginationPage'>
@@ -158,14 +163,14 @@ function handleCategoryButtonClick(categoryFilter) {
                   <button onClick={() => handleCategoryButtonClick('burger')} >
                     <p>Burger</p>
                   </button>
-                  <span>02</span>
+                  <span>04</span>
 
                 </div>
                 <div className="shopCategoryButtonBox">
                   <button onClick={() => handleCategoryButtonClick('pizza')} >
                     <p>2x Pizza</p>
                   </button>
-                  <span>03</span>
+                  <span>04</span>
                 </div>
                 <div className="shopCategoryButtonBox">
                   <button onClick={() => handleCategoryButtonClick('coffee')} >
@@ -184,7 +189,7 @@ function handleCategoryButtonClick(categoryFilter) {
                   <button onClick={() => handleCategoryButtonClick('other')} >
                     <p>Other</p>
                   </button>
-                  <span>05</span>
+                  <span>06</span>
 
                 </div>
                 <div className="shopCategoryButtonBox">
