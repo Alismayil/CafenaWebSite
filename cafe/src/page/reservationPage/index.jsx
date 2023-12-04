@@ -159,7 +159,6 @@ function ReservationPage() {
         </div>
         <img src="https://xpressrow.com/html/cafena/cafena/assets/images/shape/hero-shape-2-2.png" alt="" className='form_bg_right' />
       </section>
-      <Footer />
     </>
   );
 }
