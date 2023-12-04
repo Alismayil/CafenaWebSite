@@ -11,6 +11,7 @@ import Home1 from "./components/Routes/Homeroute/home1";
 import Blog from "./components/blog";
 import ReservationPage from './page/reservationPage/index'
 import Footer from "./layout/footer/index";
+import FAQ from "./page/FAQPage";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
       <ReservationPage>
         
       </ReservationPage>
+      {/* <FAQ></FAQ> */}
     </>
   );
 }
